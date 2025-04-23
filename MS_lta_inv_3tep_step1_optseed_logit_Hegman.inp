@@ -1,0 +1,169 @@
+
+  TITLE:
+  MS-LTA (3step approach)
+  DATA:
+  FILE = "MS_lta_inv_3step_step1_optseed.dat";
+
+  VARIABLE:
+  NAMES = EDWC_T1 IDWC_T1 EDWC_T3 IDWC_T3 CLOSZ_T1 OPP5Z_T1 ESUPZ_T1 ISUPZ_T1 CLOSZ_T3
+       OPP5Z_T3 ESUPZ_T3 ISUPZ_T3 AGEC_T1 AGEC_T3 EDUC_T1 EDUC_T3 SIOPC_T1 SIOPC_T3
+       AGE1_T1 AGE1_T3 AGE1_T11 AGE1_T13 AGE1_T31 AGE1_T33 EDU1_T1 EDU1_T3 EDU1_T11
+       EDU1_T13 EDU1_T31 EDU1_T33 SIOP1_T1 SIOP1_T3 SIP1_T11 SIP1_T13 SIP1_T31
+       SIP1_T33 AGE2_T1 AGE2_T3 AGE2_T11 AGE2_T13 AGE2_T31 AGE2_T33 EDU2_T1 EDU2_T3
+       EDU2_T11 EDU2_T13 EDU2_T31 EDU2_T33 SIOP2_T1 SIOP2_T3 SIP2_T11 SIP2_T13
+       SIP2_T31 SIP2_T33 AGE3_T1 AGE3_T3 AGE3_T11 AGE3_T13 AGE3_T31 AGE3_T33 EDU3_T1
+       EDU3_T3 EDU3_T11 EDU3_T13 EDU3_T31 EDU3_T33 SIOP3_T1 SIOP3_T3 SIP3_T11 SIP3_T13
+       SIP3_T31 SIP3_T33 INCC_T1 INCC_T3 HWC_T1 HWC_T3 INCCV HWCV INCNV HWNV INC1_T1
+       INC1_T3 INC2_T1 INC2_T3 INC3_T1 INC3_T3 INC1_T11 INC1_T13 INC1_T31 INC1_T33
+       INC2_T11 INC2_T13 INC2_T31 INC2_T33 INC3_T11 INC3_T13 INC3_T31 INC3_T33 HW1_T1
+       HW1_T3 HW2_T1 HW2_T3 HW3_T1 HW3_T3 HW1_T11 HW1_T13 HW1_T31 HW1_T33 HW2_T11
+       HW2_T13 HW2_T31 HW2_T33 HW3_T11 HW3_T13 HW3_T31 HW3_T33 INC11V INC11V_1
+       INC11V_3 INC11V_5 INC11V_7 INC12V INC12V_1 INC12V_3 INC12V_5 INC12V_7 HW11V
+       HW11V_1 HW11V_3 HW11V_5 HW11V_7 HW12V HW12V_1 HW12V_3 HW12V_5 HW12V_7 INC21V
+       INC21V_1 INC21V_3 INC21V_5 INC21V_7 INC22V INC22V_1 INC22V_3 INC22V_5 INC22V_7
+       HW21V HW21V_1 HW21V_3 HW21V_5 HW21V_7 HW22V HW22V_1 HW22V_3 HW22V_5 HW22V_7
+       INC31V INC31V_1 INC31V_3 INC31V_5 INC31V_7 INC32V INC32V_1 INC32V_3 INC32V_5
+       INC32V_7 HW31V HW31V_1 HW31V_3 HW31V_5 HW31V_7 HW32V HW32V_1 HW32V_3 HW32V_5
+       HW32V_7 SEX_T1 SEX_T3 CD_T1 CD_T3 CHILDCV CHILDNV DW_T1 DW_T3 DW_T12 DW_T13
+       DW_T32 DW_T33 DWV DWV1_2 DWV1_3 AG_T1 AG_T3 AAGE_T1 AAGE_T3 AEDU_T1 AEDU_T3
+       ASIOP_T1 ASIOP_T3 AINC_T1 AINC_T3 AHW_T1 AHW_T3 AINCCV AHWCV AINCNV AINCNV_1
+       AINCNV_3 AHWNV AHWNV_1 AHWNV_3 AHK_T1 AHK_T3 AHKNV PAGE_T1 PAGE_T3 PAGEN_T1
+       PAGEN_T3 PAGE_T12 PAGE_T13 PAGE_T14 PAGE_T32 PAGE_T33 PAGE_T34 PSEX_T1 PSEX_T3
+       PMAR_T1 PMAR_T3 PMARNV PEDU_T1 PEDU_T3 PEDU_T12 PEDU_T13 PEDU_T32 PEDU_T33
+       PHK_T1 PHK_T3 PCOR_T1 PCOR_T3 PCORNV PPART_T1 PPART_T3 FINC_T1 FINC_T3 FINCCV
+       FINCNV FINCNV_1 FINCNV_3 FURB_T1 FURB_T3 FPROV_T1 FPROV_T3 FPOV_T11 FPOV_T13
+       FPOV_T31 FPOV_T33 LFT_T1 LFT_T3 FCZ_T1 FCZ_T3 RESP_T1 RESP_T3 CPROB1 CPROB2
+       CPROB3 CPROB4 CPROB5 CPROB6 CPROB7 CPROB8 CPROB9 CPROB10 CPROB11 CPROB12
+       CPROB13 CPROB14 CPROB15 CPROB16 n1 n3 MLCJOINT PID;
+   MISSING=.;
+   usevar = n1 n3;
+
+  IDVARIABLE = pid;
+  nominal = n1 n3;
+  classes = G(2) c1(4) c3(4); !!! Specifing the classnumb = 4. !!!
+
+  ANALYSIS:
+  algorithm = integration; !!!
+  estimator = mlr;
+  type = mixture;
+  starts = 0;
+  processors=10;
+  !Parameterization = probability;
+  Parameterization = logit;
+
+  MODEL:
+  %OVERALL%
+!c1 ON G;
+C1 ON G; ! Mover-Stayer influence on C1 
+
+! Mover-Stayer influence on C3
+!C3 ON G; !P(c3=x | c1=y, G=1) = [c3#x] + [c3#x ON c1#y] + [c3#x ON G#1] 
+
+C3#1 ON G#1@-1.174; !P(c3=1 | c1=4, G=1) = [c3#1] + [c3#1 ON G#1] = 0 + -1.174 = -1.174
+C3#2 ON G#1@-0.691; !P(c3=2 | c1=4, G=1) = [c3#2] + [c3#1 ON G#1] = 0 + -0.691 = -0.691
+C3#3 ON G#1@-27.038; !P(c3=3 | c1=4, G=1) = [c3#3] + [c3#1 ON G#1] = 13.816 + -27.038 = -13.222
+
+! PROBABILITY OF TRANSITIONING FROM CLASS 1 IN C1 TO C3 FIXED AT 0 FOR THE STAYER CLASS
+! (LOGIT METRIC SO EXTREME VALUE OF -10 IS FIXING TO 0 FOR RELATIONSHIP)
+! Ddfine intercept for Stayer and Mover
+! P(c2=x | c1=y, G=2) = [c2#x] + [c2#x on c1#y] 
+[c3#1@0]; !P(c3=1 | c1=4, G=2) = [c3#1] = 0
+[c3#2@0]; !P(c3=2 | c1=4, G=2) = [c3#2] = 0
+[c3#3@13.816]; !P(c3=3 | c1=4, G=2) = [c3#3] = 1
+![c3#4@-10]; !P(c3=4 | c1=4, G=2) = 1 - (0+0+1) = 0
+
+  Model G:
+
+
+  %G#1% ! Mover class: transitions based on LTA probabilities
+  ! Logit values relative to C3#4 (independent Ë‘∂)
+  C3#1 ON C1#1@0.349; C3#2 ON C1#1@-0.614; C3#3 ON C1#1@-12.731; !C3#4 ON C1#1@0.000;
+  C3#1 ON C1#2@-0.883; C3#2 ON C1#2@0.846; C3#3 ON C1#2@-12.496; !C3#4 ON C1#2@0.000;
+  C3#1 ON C1#3@0.128; C3#2 ON C1#3@0.698; C3#3 ON C1#3@-12.393; !C3#4 ON C1#3@0.000;
+  !C3#1 ON C1#4@-1.174; C3#2 ON C1#4@-0.691; C3#3 ON C1#4@-13.222; !C3#4 ON C1#4@0.000;
+
+  %G#2% ! Stayer class: transitions to "∑Ó—¯”–º‰" (C3#3)
+  ! Force P(C3=3 | C1=k, G=1) °÷ 1 for all k, C3#4 as reference
+  C3#1 ON C1#1@0; C3#2 ON C1#1@0; C3#3 ON C1#1@13.816; !C3#4 ON C1#1@0.000;
+  C3#1 ON C1#2@0; C3#2 ON C1#2@0; C3#3 ON C1#2@13.816; !C3#4 ON C1#2@0.000;
+  C3#1 ON C1#3@0; C3#2 ON C1#3@0; C3#3 ON C1#3@13.816; !C3#4 ON C1#3@0.000;
+  !C3#1 ON C1#4@0.000; C3#2 ON C1#4@0.000; C3#3 ON C1#4@13.816; !C3#4 ON C1#4@0.000;
+
+
+
+  MODEL G.c1: !!! the following syntax will allow item thresholds !!!
+  !!! to be estimated for each class (e.g. invariance) !!!
+  %G#1.c1#1%
+  [n1#1@11.516]; !!! fix every categories of n1 by 'qc1,c2' value !!!
+  [n1#2@6.588];
+  [n1#3@-2.292]; !!! n1#4 is referrence group, don't need fix !!!
+  %G#1.c1#2%
+  [n1#1@9.306];
+  [n1#2@13.804];
+  [n1#3@0.000];
+  %G#1.c1#3%
+  [n1#1@-9.637];
+  [n1#2@-5.989];
+  [n1#3@4.163];
+  %G#1.c1#4%
+  [n1#1@-11.846];
+  [n1#2@-13.814];
+  [n1#3@-6.567];
+
+  %G#2.c1#1%
+  [n1#1@11.516]; !!! fix every categories of n1 by 'qc1,c2' value !!!
+  [n1#2@6.588];
+  [n1#3@-2.292]; !!! n1#4 is referrence group, don't need fix !!!
+  %G#2.c1#2%
+  [n1#1@9.306];
+  [n1#2@13.804];
+  [n1#3@0.000];
+  %G#2.c1#3%
+  [n1#1@-9.637];
+  [n1#2@-5.989];
+  [n1#3@4.163];
+  %G#2.c1#4%
+  [n1#1@-11.846];
+  [n1#2@-13.814];
+  [n1#3@-6.567];
+
+  MODEL G.c3: !!! the following syntax will allow item thresholds !!!
+  !!! to be estimated for each class (e.g. invariance) !!!
+  %G#1.c3#1%
+  [n3#1@7.488]; !!! fix every categories of n1 by 'qc1,c2' value !!!
+  [n3#2@2.337];
+  [n3#3@-6.321]; !!! n1#4 is referrence group, don't need fix !!!
+  %G#1.c3#2%
+  [n3#1@8.589];
+  [n3#2@13.810];
+  [n3#3@5.659];
+  %G#1.c3#3%
+  [n3#1@-8.281];
+  [n3#2@-1.826];
+  [n3#3@5.530];
+  %G#1.c3#4%
+  [n3#1@-11.024];
+  [n3#2@-13.810];
+  [n3#3@-5.125];
+
+  %G#2.c3#1%
+  [n3#1@7.488]; !!! fix every categories of n1 by 'qc1,c2' value !!!
+  [n3#2@2.337];
+  [n3#3@-6.321]; !!! n1#4 is referrence group, don't need fix !!!
+  %G#2.c3#2%
+  [n3#1@8.589];
+  [n3#2@13.810];
+  [n3#3@5.659];
+  %G#2.c3#3%
+  [n3#1@-8.281];
+  [n3#2@-1.826];
+  [n3#3@5.530];
+  %G#2.c3#4%
+  [n3#1@-11.024];
+  [n3#2@-13.810];
+  [n3#3@-5.125];
+
+  OUTPUT:
+  tech1 tech10 tech15 svalues CINTERVAL;
+
+                                                                      
