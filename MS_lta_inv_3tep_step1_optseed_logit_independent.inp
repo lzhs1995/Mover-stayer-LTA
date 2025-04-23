@@ -50,27 +50,74 @@ processors=10;
 !Parameterization = probability;
 Parameterization = logit;
 
+MODEL:
+%overall%
 
-MODEL: 
-%OVERALL% 
+! G IS THE MOVER-STAYER LATENT VARIABLE
+! G#1 IS THE MOVER CLASS
+! G#2 IS THE STAYER CLASS
+
+!c1 ON G;
 C1 ON G; ! Mover-Stayer influence on C1 
-C3 ON G; ! Mover-Stayer influence on C3
+
+! Mover-Stayer influence on C3
+!C3 ON G; !P(c3=x | c1=y, G=1) = [c3#x] + [c3#x ON c1#y] + [c3#x ON G#1] 
+
+C3#1 ON G#1; !P(c3=1 | c1=y, G=1) = [c3#1] + [c3#1 ON G#1] 
+C3#2 ON G#1; !P(c3=2 | c1=y, G=1) = [c3#2] + [c3#1 ON G#1] 
+C3#3 ON G#1@-30; !P(c3=3 | c1=y, G=1) = [c3#3] + [c3#1 ON G#1] = 10 + (-30) = -20(-Large) = 1
+
+! PROBABILITY OF TRANSITIONING FROM CLASS 1 IN C1 TO C3 FIXED AT 0 FOR THE STAYER CLASS
+! (LOGIT METRIC SO EXTREME VALUE OF -10 IS FIXING TO 0 FOR RELATIONSHIP)
+! Ddfine intercept for Stayer and Mover
+! P(c2=x | c1=y, G=2) = [c2#x] + [c2#x on c1#y] 
+[c3#1@-10]; !P(c3=1 | c1=4, G=2) = [c3#1] = 0
+[c3#2@-10]; !P(c3=2 | c1=4, G=2) = [c3#2] = 0
+[c3#3@10]; !P(c3=3 | c1=4, G=2) = [c3#3] = 1
+![c3#4@-10]; !P(c3=4 | c1=4, G=2) = 1 - (0+0+1) = 0
 
 Model G:
 
-%G#1% ! Stayer class: transitions to "奉养有间	Financially-Distant" (C3#3) 
-! Force P(C3=3 | C1=k, G=1) ≈ 1 for all k, C3#4 as reference 
-C3#1 ON C1#1@0.000; C3#2 ON C1#1@13.816; C3#3 ON C1#1@0.000; !C3#4 ON C1#1@0.000;
-C3#1 ON C1#2@0.000; C3#2 ON C1#2@13.816; C3#3 ON C1#2@0.000; !C3#4 ON C1#2@0.000;
-C3#1 ON C1#3@0.000; C3#2 ON C1#3@13.816; C3#3 ON C1#3@0.000; !C3#4 ON C1#3@0.000; 
-!C3#1 ON C1#4@0.000; C3#2 ON C1#4@13.816; C3#3 ON C1#4@0.000; !C3#4 ON C1#4@0.000;
+%G#1% ! Movers
+!c3 on c1; !!! estimate all multinomial logistic regressions !!!
 
-%G#2% ! Mover class: transitions based on LTA probabilities 
-! Logit values relative to C3#4 (亲密无间  Tight-Knit) 
-C3#1 ON C1#1@0.336; C3#2 ON C1#1@-12.401; C3#3 ON C1#1@0.142; !C3#4 ON C1#1@0.000; 
-C3#1 ON C1#2@-0.887; C3#2 ON C1#2@-12.139; C3#3 ON C1#2@0.435; !C3#4 ON C1#2@0.000; 
-C3#1 ON C1#3@0.095; C3#2 ON C1#3@-11.608; C3#3 ON C1#3@1.602; !C3#4 ON C1#3@0.000;
-!C3#1 ON C1#4@-1.124; C3#2 ON C1#4@-13.063; C3#3 ON C1#4@-1.206; !C3#4 ON C1#4@0.000;
+c3#1 ON c1#1; c3#2 ON c1#1; c3#3 ON c1#1@-10; !c3#4 ON c1#1;
+c3#1 ON c1#2; c3#2 ON c1#2; c3#3 ON c1#2@-10; !c3#4 ON c1#2;
+c3#1 ON c1#3; c3#2 ON c1#3; c3#3 ON c1#3@-10; !c3#4 ON c1#3;
+!!c3#1 ON c1#4; c3#2 ON c1#4; c3#3 ON c1#4@-10; !c3#4 ON c1#4;
+
+
+%G#2% ! Stayers CLASS SO FIX VALUES TO LOGIT EXTREMES (20 FOR 1 & -10 FOR 0)
+!! C1 transfer to C3#3
+c3#1 ON c1#1@-10; c3#2 ON c1#1@-10; c3#3 ON c1#1@20; !c3#4 ON c1#1@-10;
+c3#1 ON c1#2@-10; c3#2 ON c1#2@-10; c3#3 ON c1#2@20; !c3#4 ON c1#2@-10;
+c3#1 ON c1#3@-10; c3#2 ON c1#3@-10; c3#3 ON c1#3@20; !c3#4 ON c1#3@-10;
+!!c3#1 ON c1#4@-10; c3#2 ON c1#4@-10; c3#3 ON c1#4@20; !c3#4 ON c1#4@-10;
+
+
+!%G#1% ! Stayers CLASS SO FIX VALUES TO LOGIT EXTREMES (20 FOR 1 & -10 FOR 0)
+!! C1 transfer to C3#1 OR C3#2 
+!c3#1 ON c1#1; c3#2 ON c1#1; c3#3 ON c1#1@-10; !c3#4 ON c1#1@-10;
+!c3#1 ON c1#2; c3#2 ON c1#2; c3#3 ON c1#2@-10; !c3#4 ON c1#2@-10;
+!c3#1 ON c1#3; c3#2 ON c1#3; c3#3 ON c1#3@-10; !c3#4 ON c1#3@-10;
+!!c3#1 ON c1#4; c3#2 ON c1#4; c3#3 ON c1#4@-10; !c3#4 ON c1#4@-10;
+
+
+!%G#1% ! Stayers CLASS
+!! C1 transfer to C3#3
+!c3#1 ON c1#1@0; c3#2 ON c1#1@0; c3#3 ON c1#1@1; !c3#4 ON c1#1@0;
+!c3#1 ON c1#2@0; c3#2 ON c1#2@0; c3#3 ON c1#2@1; !c3#4 ON c1#2@0;
+!c3#1 ON c1#3@0; c3#2 ON c1#3@0; c3#3 ON c1#3@1; !c3#4 ON c1#3@0;
+!c3#1 ON c1#4@0; c3#2 ON c1#4@0; c3#3 ON c1#4@1; !c3#4 ON c1#4@0;
+
+
+!%G#1% ! Stayers CLASS
+!! C1 transfer to C3#1 OR C3#2 
+!c3#1 ON c1#1; c3#2 ON c1#1; c3#3 ON c1#1@0; !c3#4 ON c1#1@0;
+!c3#1 ON c1#2; c3#2 ON c1#2; c3#3 ON c1#2@0; !c3#4 ON c1#2@0;
+!c3#1 ON c1#3; c3#2 ON c1#3; c3#3 ON c1#3@0; !c3#4 ON c1#3@0;
+!c3#1 ON c1#4; c3#2 ON c1#4; c3#3 ON c1#4@0; !c3#4 ON c1#4@0;
+
 
 
 MODEL G.c1: !!! the following syntax will allow item thresholds !!!
@@ -148,4 +195,4 @@ MODEL G.c3: !!! the following syntax will allow item thresholds !!!
 OUTPUT:
 tech1 tech10 tech15 svalues CINTERVAL;
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                          
