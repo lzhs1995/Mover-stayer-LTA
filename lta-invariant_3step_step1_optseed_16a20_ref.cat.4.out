@@ -1,0 +1,3857 @@
+Mplus VERSION 8.11
+MUTHEN & MUTHEN
+05/03/2025  11:21 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  LTA (3step approach for c1 c3)
+  DATA:
+  FILE = "lta_inv_3step_step1_optseed_16a20_ref.cat.4.dat";
+
+  VARIABLE:
+  NAMES = pid pidn fid closz_t1 closz_t3 clos_t1 clos_t3 esupz_t1 esupz_t3 esup_t1
+       esup_t3 edwz_t1 edwz_t3 edw_t1 edw_t3 isupz_t1 isupz_t3 isup_t1 isup_t3 idwz_t1
+       idwz_t3 idw_t1 idw_t3 meetz_t1 meetz_t3 meet_t1 meet_t3 contz_t1 contz_t3
+       cont_t1 cont_t3 oppz_t1 oppz_t3 opp_t1 opp_t3 opp5z_t1 opp5z_t3 opp5_t1 opp5_t3
+       opp5n_t1 opp5n_t3 agec_t1 agec_t3 educ_t1 educ_t3 siopc_t1 siopc_t3 age1_t1
+       age1_t3 age1_t11 age1_t13 age1_t31 age1_t33 edu1_t1 edu1_t3 edu1_t11 edu1_t13
+       edu1_t31 edu1_t33 siop1_t1 siop1_t3 sip1_t11 sip1_t13 sip1_t31 sip1_t33 age2_t1
+       age2_t3 age2_t11 age2_t13 age2_t31 age2_t33 edu2_t1 edu2_t3 edu2_t11 edu2_t13
+       edu2_t31 edu2_t33 siop2_t1 siop2_t3 sip2_t11 sip2_t13 sip2_t31 sip2_t33 age3_t1
+       age3_t3 age3_t11 age3_t13 age3_t31 age3_t33 edu3_t1 edu3_t3 edu3_t11 edu3_t13
+       edu3_t31 edu3_t33 siop3_t1 siop3_t3 sip3_t11 sip3_t13 sip3_t31 sip3_t33 incc_t1
+       incc_t3 hwc_t1 hwc_t3 inccv hwcv incnv hwnv inc1_t1 inc1_t3 inc2_t1 inc2_t3
+       inc3_t1 inc3_t3 inc1_t11 inc1_t13 inc1_t31 inc1_t33 inc2_t11 inc2_t13 inc2_t31
+       inc2_t33 inc3_t11 inc3_t13 inc3_t31 inc3_t33 hw1_t1 hw1_t3 hw2_t1 hw2_t3 hw3_t1
+       hw3_t3 hw1_t11 hw1_t13 hw1_t31 hw1_t33 hw2_t11 hw2_t13 hw2_t31 hw2_t33 hw3_t11
+       hw3_t13 hw3_t31 hw3_t33 inc11v inc11v_1 inc11v_3 inc11v_5 inc11v_7 inc12v
+       inc12v_1 inc12v_3 inc12v_5 inc12v_7 hw11v hw11v_1 hw11v_3 hw11v_5 hw11v_7 hw12v
+       hw12v_1 hw12v_3 hw12v_5 hw12v_7 inc21v inc21v_1 inc21v_3 inc21v_5 inc21v_7
+       inc22v inc22v_1 inc22v_3 inc22v_5 inc22v_7 hw21v hw21v_1 hw21v_3 hw21v_5
+       hw21v_7 hw22v hw22v_1 hw22v_3 hw22v_5 hw22v_7 inc31v inc31v_1 inc31v_3 inc31v_5
+       inc31v_7 inc32v inc32v_1 inc32v_3 inc32v_5 inc32v_7 hw31v hw31v_1 hw31v_3
+       hw31v_5 hw31v_7 hw32v hw32v_1 hw32v_3 hw32v_5 hw32v_7 sex_t1 sex_t3 cd_t1 cd_t3
+       childcv childnv dw_t1 dw_t3 dw_t12 dw_t13 dw_t32 dw_t33 dwv dwv1_2 dwv1_3 ag_t1
+       ag_t3 aage_t1 aage_t3 aedu_t1 aedu_t3 asiop_t1 asiop_t3 ainc_t1 ainc_t3 ahw_t1
+       ahw_t3 ainccv ahwcv aincnv aincnv_1 aincnv_3 ahwnv ahwnv_1 ahwnv_3 ahk_t1
+       ahk_t3 ahknv page_t1 page_t3 pagen_t1 pagen_t3 page_t12 page_t13 page_t14
+       page_t32 page_t33 page_t34 psex_t1 psex_t3 pmar_t1 pmar_t3 pmarnv pedu_t1
+       pedu_t3 pedu_t12 pedu_t13 pedu_t32 pedu_t33 phk_t1 phk_t3 pcor_t1 pcor_t3
+       pcornv ppart_t1 ppart_t3 finc_t1 finc_t3 finccv fincnv fincnv_1 fincnv_3
+       furb_t1 furb_t3 fprov_t1 fprov_t3 fpov_t11 fpov_t13 fpov_t31 fpov_t33 lft_t1
+       lft_t3 fcz_t1 fcz_t3 resp_t1 resp_t3 lifetime;
+   MISSING=.;
+   usevar =  closz_t1 opp5z_t1 esupz_t1 isupz_t1
+  closz_t3 opp5z_t3 esupz_t3 isupz_t3
+  edwc_t1 idwc_t1
+  edwc_t3 idwc_t3; ! Time1-3 have 4 continuous items. !
+  categorical = edwc_t1 idwc_t1 edwc_t3 idwc_t3;
+  IDVARIABLE = pid;
+  classes = c1(4) c3(4); !!! Specifing the classnumb = 4. !!!
+  auxiliary =
+
+  pidn fid
+  agec_t1 agec_t3
+  educ_t1 educ_t3
+  siopc_t1 siopc_t3
+  age1_t1 age1_t3
+  age1_t11 age1_t13 age1_t31 age1_t33
+  edu1_t1 edu1_t3
+  edu1_t11 edu1_t13 edu1_t31 edu1_t33
+  siop1_t1 siop1_t3
+  sip1_t11 sip1_t13 sip1_t31 sip1_t33
+  age2_t1 age2_t3
+  age2_t11 age2_t13 age2_t31 age2_t33
+  edu2_t1 edu2_t3
+  edu2_t11 edu2_t13 edu2_t31 edu2_t33
+  siop2_t1 siop2_t3
+  sip2_t11 sip2_t13 sip2_t31 sip2_t33
+  age3_t1 age3_t3
+  age3_t11 age3_t13 age3_t31 age3_t33
+  edu3_t1 edu3_t3
+  edu3_t11 edu3_t13 edu3_t31 edu3_t33
+  siop3_t1 siop3_t3
+  sip3_t11 sip3_t13 sip3_t31 sip3_t33
+
+  incc_t1 incc_t3
+  hwc_t1 hwc_t3
+  inccv hwcv incnv hwnv
+  inc1_t1 inc1_t3 inc2_t1 inc2_t3 inc3_t1 inc3_t3
+  inc1_t11 inc1_t13 inc1_t31 inc1_t33
+  inc2_t11 inc2_t13 inc2_t31 inc2_t33
+  inc3_t11 inc3_t13 inc3_t31 inc3_t33
+  hw1_t1 hw1_t3 hw2_t1 hw2_t3 hw3_t1 hw3_t3
+  hw1_t11 hw1_t13 hw1_t31 hw1_t33
+  hw2_t11 hw2_t13 hw2_t31 hw2_t33
+  hw3_t11 hw3_t13 hw3_t31 hw3_t33
+  inc11v inc11v_1 inc11v_3 inc11v_5 inc11v_7
+  inc12v inc12v_1 inc12v_3 inc12v_5 inc12v_7
+  hw11v hw11v_1 hw11v_3 hw11v_5 hw11v_7
+  hw12v hw12v_1 hw12v_3 hw12v_5 hw12v_7
+  inc21v inc21v_1 inc21v_3 inc21v_5 inc21v_7
+  inc22v inc22v_1 inc22v_3 inc22v_5 inc22v_7
+  hw21v hw21v_1 hw21v_3 hw21v_5 hw21v_7
+  hw22v hw22v_1 hw22v_3 hw22v_5 hw22v_7
+  inc31v inc31v_1 inc31v_3 inc31v_5 inc31v_7
+  inc32v inc32v_1 inc32v_3 inc32v_5 inc32v_7
+  hw31v hw31v_1 hw31v_3 hw31v_5 hw31v_7
+  hw32v hw32v_1 hw32v_3 hw32v_5 hw32v_7
+
+  sex_t1 sex_t3
+  cd_t1 cd_t3
+  childcv
+  childnv
+  dw_t1 dw_t3
+  dw_t12 dw_t13 dw_t32 dw_t33
+  dwv
+  dwv1_2 dwv1_3
+  ag_t1 ag_t3
+
+  aage_t1 aage_t3
+  aedu_t1 aedu_t3
+  asiop_t1 asiop_t3
+  ainc_t1 ainc_t3
+  ahw_t1 ahw_t3
+  ainccv
+  ahwcv
+  aincnv
+  aincnv_1 aincnv_3
+  ahwnv
+  ahwnv_1 ahwnv_3
+  ahk_t1 ahk_t3
+  ahknv
+
+  page_t1 page_t3
+  pagen_t1 pagen_t3
+  page_t12 page_t13 page_t14 page_t32 page_t33 page_t34
+  psex_t1 psex_t3
+  pmar_t1 pmar_t3
+  pmarnv
+  pedu_t1 pedu_t3
+  pedu_t12 pedu_t13 pedu_t32 pedu_t33
+  phk_t1 phk_t3
+  pcor_t1 pcor_t3
+  pcornv
+  ppart_t1 ppart_t3
+
+  finc_t1 finc_t3
+  finccv
+  fincnv
+  fincnv_1 fincnv_3
+  furb_t1 furb_t3
+  fprov_t1 fprov_t3
+  fpov_t11 fpov_t13 fpov_t31 fpov_t33
+  lft_t1 lft_t3
+
+  fcz_t1 fcz_t3
+  resp_t1 resp_t3;
+  DEFINE:
+  edwc_t1 = 0;
+  IF (edw_t1 LT esup_t1*1) THEN edwc_t1 = 1;
+
+  idwc_t1 = 0;
+  IF (idw_t1 LT isup_t1*1) THEN idwc_t1 = 1;
+
+      edwc_t3 = 0;
+  IF (edw_t3 LT esup_t3*1) THEN edwc_t3 = 1;
+
+  idwc_t3 = 0;
+  IF (idw_t3 LT isup_t3*1) THEN idwc_t3 = 1;
+  ANALYSIS:
+  ALGORITHM = EM;
+  !!! algorithm = integration; !!!
+  !!! integration = 30; !!!
+  estimator = mlr;
+  type = mixture;
+  optseed = 637345;
+  starts = 600 250;
+  !!! LRTSTARTS = 20 5 100 25; !!!
+  processors=10;
+  !!! stscale = 1; !!!
+  MODEL:
+  %overall%
+  !c3 on c1; !!! estimate all multinomial logistic regressions !!!
+  !!! The above syntax can also be written as: !!!
+  ! c2#1 on c1#1 c1#2 c1#3; !
+  ! c2#2 on c1#1 c1#2 c1#3; !
+  ! c2#3 on c1#1 c1#2 c1#3; !
+
+  MODEL c1: !!! the following syntax will allow item thresholds !!!
+  !!! to be estimated for each class (e.g. invariance) !!!
+  %c1#1%
+  [closz_t1-isupz_t1] (1-4); !!! (1-6) is the only discrepancy between non-inv and inv. !!!
+  [edwc_t1$1 idwc_t1$1] (5-6);
+  %c1#2%
+  [closz_t1-isupz_t1] (7-10);
+  [edwc_t1$1 idwc_t1$1] (11-12);
+  %c1#3%
+  [closz_t1-isupz_t1] (13-16);
+  [edwc_t1$1 idwc_t1$1] (17-18);
+  %c1#4%
+  [closz_t1-isupz_t1] (19-22);
+  [edwc_t1$1 idwc_t1$1] (23-24);
+
+  MODEL c3:
+  %c3#1%
+  [closz_t3-isupz_t3] (1-4); !!! (1-6) is the only discrepancy between non-inv and inv. !!!
+  [edwc_t3$1 idwc_t3$1] (5-6);
+  %c3#2%
+  [closz_t3-isupz_t3] (7-10);
+  [edwc_t3$1 idwc_t3$1] (11-12);
+  %c3#3%
+  [closz_t3-isupz_t3] (13-16);
+  [edwc_t3$1 idwc_t3$1] (17-18);
+  %c3#4%
+  [closz_t3-isupz_t3] (19-22);
+  [edwc_t3$1 idwc_t3$1] (23-24);
+  OUTPUT:
+  tech1 tech10 tech15 svalues(2 3 1 4 | 2 3 1 4);
+  SAVEDATA:
+  FILE = result_lta_inv_3step_step1_optseed_16a20_ref.cat.4.dat;
+  SAVE = cprob;
+
+
+
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables within class.
+  Check that this is what is intended.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+LTA (3step approach for c1 c3)
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        7008
+
+Number of dependent variables                                   12
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           2
+
+Observed dependent variables
+
+  Continuous
+   CLOSZ_T1    OPP5Z_T1    ESUPZ_T1    ISUPZ_T1    CLOSZ_T3    OPP5Z_T3
+   ESUPZ_T3    ISUPZ_T3
+
+  Binary and ordered categorical (ordinal)
+   EDWC_T1     IDWC_T1     EDWC_T3     IDWC_T3
+
+Observed auxiliary variables
+   PIDN        FID         AGEC_T1     AGEC_T3     EDUC_T1     EDUC_T3
+   SIOPC_T1    SIOPC_T3    AGE1_T1     AGE1_T3     AGE1_T11    AGE1_T13
+   AGE1_T31    AGE1_T33    EDU1_T1     EDU1_T3     EDU1_T11    EDU1_T13
+   EDU1_T31    EDU1_T33    SIOP1_T1    SIOP1_T3    SIP1_T11    SIP1_T13
+   SIP1_T31    SIP1_T33    AGE2_T1     AGE2_T3     AGE2_T11    AGE2_T13
+   AGE2_T31    AGE2_T33    EDU2_T1     EDU2_T3     EDU2_T11    EDU2_T13
+   EDU2_T31    EDU2_T33    SIOP2_T1    SIOP2_T3    SIP2_T11    SIP2_T13
+   SIP2_T31    SIP2_T33    AGE3_T1     AGE3_T3     AGE3_T11    AGE3_T13
+   AGE3_T31    AGE3_T33    EDU3_T1     EDU3_T3     EDU3_T11    EDU3_T13
+   EDU3_T31    EDU3_T33    SIOP3_T1    SIOP3_T3    SIP3_T11    SIP3_T13
+   SIP3_T31    SIP3_T33    INCC_T1     INCC_T3     HWC_T1      HWC_T3
+   INCCV       HWCV        INCNV       HWNV        INC1_T1     INC1_T3
+   INC2_T1     INC2_T3     INC3_T1     INC3_T3     INC1_T11    INC1_T13
+   INC1_T31    INC1_T33    INC2_T11    INC2_T13    INC2_T31    INC2_T33
+   INC3_T11    INC3_T13    INC3_T31    INC3_T33    HW1_T1      HW1_T3
+   HW2_T1      HW2_T3      HW3_T1      HW3_T3      HW1_T11     HW1_T13
+   HW1_T31     HW1_T33     HW2_T11     HW2_T13     HW2_T31     HW2_T33
+   HW3_T11     HW3_T13     HW3_T31     HW3_T33     INC11V      INC11V_1
+   INC11V_3    INC11V_5    INC11V_7    INC12V      INC12V_1    INC12V_3
+   INC12V_5    INC12V_7    HW11V       HW11V_1     HW11V_3     HW11V_5
+   HW11V_7     HW12V       HW12V_1     HW12V_3     HW12V_5     HW12V_7
+   INC21V      INC21V_1    INC21V_3    INC21V_5    INC21V_7    INC22V
+   INC22V_1    INC22V_3    INC22V_5    INC22V_7    HW21V       HW21V_1
+   HW21V_3     HW21V_5     HW21V_7     HW22V       HW22V_1     HW22V_3
+   HW22V_5     HW22V_7     INC31V      INC31V_1    INC31V_3    INC31V_5
+   INC31V_7    INC32V      INC32V_1    INC32V_3    INC32V_5    INC32V_7
+   HW31V       HW31V_1     HW31V_3     HW31V_5     HW31V_7     HW32V
+   HW32V_1     HW32V_3     HW32V_5     HW32V_7     SEX_T1      SEX_T3
+   CD_T1       CD_T3       CHILDCV     CHILDNV     DW_T1       DW_T3
+   DW_T12      DW_T13      DW_T32      DW_T33      DWV         DWV1_2
+   DWV1_3      AG_T1       AG_T3       AAGE_T1     AAGE_T3     AEDU_T1
+   AEDU_T3     ASIOP_T1    ASIOP_T3    AINC_T1     AINC_T3     AHW_T1
+   AHW_T3      AINCCV      AHWCV       AINCNV      AINCNV_1    AINCNV_3
+   AHWNV       AHWNV_1     AHWNV_3     AHK_T1      AHK_T3      AHKNV
+   PAGE_T1     PAGE_T3     PAGEN_T1    PAGEN_T3    PAGE_T12    PAGE_T13
+   PAGE_T14    PAGE_T32    PAGE_T33    PAGE_T34    PSEX_T1     PSEX_T3
+   PMAR_T1     PMAR_T3     PMARNV      PEDU_T1     PEDU_T3     PEDU_T12
+   PEDU_T13    PEDU_T32    PEDU_T33    PHK_T1      PHK_T3      PCOR_T1
+   PCOR_T3     PCORNV      PPART_T1    PPART_T3    FINC_T1     FINC_T3
+   FINCCV      FINCNV      FINCNV_1    FINCNV_3    FURB_T1     FURB_T3
+   FPROV_T1    FPROV_T3    FPOV_T11    FPOV_T13    FPOV_T31    FPOV_T33
+   LFT_T1      LFT_T3      FCZ_T1      FCZ_T3      RESP_T1     RESP_T3
+
+Categorical latent variables
+   C1          C3
+
+Variables with special functions
+
+  ID variable           PID
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-03
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-03
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-03
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                          EM
+Random Starts Specifications
+  Random seed for analysis                                  637345
+Parameterization                                             LOGIT
+Link                                                         LOGIT
+
+Input data file(s)
+  lta_inv_3step_step1_optseed_16a20_ref.cat.4.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           1
+     Number of u missing data patterns           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       1.000
+ OPP5Z_T1       1.000         1.000
+ ESUPZ_T1       1.000         1.000         1.000
+ ISUPZ_T1       1.000         1.000         1.000         1.000
+ CLOSZ_T3       1.000         1.000         1.000         1.000         1.000
+ OPP5Z_T3       1.000         1.000         1.000         1.000         1.000
+ ESUPZ_T3       1.000         1.000         1.000         1.000         1.000
+ ISUPZ_T3       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       1.000
+ ESUPZ_T3       1.000         1.000
+ ISUPZ_T3       1.000         1.000         1.000
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    EDWC_T1
+      Category 1    0.630         4418.000
+      Category 2    0.370         2590.000
+    IDWC_T1
+      Category 1    0.818         5733.000
+      Category 2    0.182         1275.000
+    EDWC_T3
+      Category 1    0.565         3958.000
+      Category 2    0.435         3050.000
+    IDWC_T3
+      Category 1    0.747         5238.000
+      Category 2    0.253         1770.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     CLOSZ_T1              5.000      -0.771       0.551    0.23%       4.592      4.592      4.592
+            7008.000       1.000       0.122       5.939   45.99%       5.939      5.939
+     OPP5Z_T1              5.000      -0.665       2.265    2.48%       4.117      5.043      5.043
+            7008.000       1.000      -0.426       5.969   42.69%       5.969      5.969
+     ESUPZ_T1              5.000       0.567       4.201   59.59%       4.201      4.201      4.201
+            7008.000       1.000      -1.448       7.453    0.11%       5.339      6.183
+     ISUPZ_T1              5.000       1.189       4.368   67.39%       4.368      4.368      4.368
+            7008.000       1.000      -0.226       7.139   10.50%       4.368      6.215
+     CLOSZ_T3              5.000      -0.913       0.700    0.26%       4.557      4.557      5.842
+            7008.000       1.000       0.138       5.842   51.88%       5.842      5.842
+     OPP5Z_T3              5.000      -0.665       2.168    2.33%       4.087      5.046      5.046
+            7008.000       1.000      -0.281       6.005   40.03%       6.005      6.005
+     ESUPZ_T3              5.000       0.277       4.080   52.67%       4.080      4.080      4.080
+            7008.000       1.000      -1.708       7.123    0.20%       5.714      6.108
+     ISUPZ_T3              5.000       0.843       4.258   59.85%       4.258      4.258      4.258
+            7008.000       1.000      -0.944       6.880   12.43%       4.695      6.006
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       38
+
+Loglikelihood
+
+          H0 Value                      -68587.827
+          H0 Scaling Correction Factor      1.2971
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                  137251.653
+          Bayesian (BIC)                137512.136
+          Sample-Size Adjusted BIC      137391.381
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes
+
+          Pearson Chi-Square
+
+          Value                           1553.253
+          Degrees of freedom cannot be computed for this model part.
+
+          Likelihood Ratio Chi-Square
+
+          Value                           1349.472
+          Degrees of freedom cannot be computed for this model part.
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Variable    Class
+
+    C1             1      1094.57922          0.15619
+                   2       910.40637          0.12991
+                   3      1730.37939          0.24691
+                   4      3272.63501          0.46699
+    C3             1      1421.55798          0.20285
+                   2      1007.29535          0.14374
+                   3      1885.21326          0.26901
+                   4      2693.93335          0.38441
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.989
+
+
+LATENT CLASS INDICATOR MEANS AND PROBABILITIES FOR EACH LATENT CLASS
+
+     MEAN/PROBABILITY PROFILES FOR C1
+                       Latent class
+                     1      2      3      4
+     EDWC_T1
+       Category 1  0.107  0.998  0.065  0.999
+       Category 2  0.893  0.002  0.935  0.001
+     IDWC_T1
+       Category 1  0.411  0.408  0.946  0.961
+       Category 2  0.589  0.592  0.054  0.039
+     CLOSZ_T1      5.194  5.144  5.013  4.864
+     OPP5Z_T1      5.448  5.537  4.747  4.791
+     ESUPZ_T1      6.119  4.139  6.083  4.147
+     ISUPZ_T1      6.345  6.428  4.373  4.357
+
+     MEAN/PROBABILITY PROFILES FOR C3
+                       Latent class
+                     1      2      3      4
+     EDWC_T3
+       Category 1  0.107  0.998  0.065  0.999
+       Category 2  0.893  0.002  0.935  0.001
+     IDWC_T3
+       Category 1  0.411  0.408  0.946  0.961
+       Category 2  0.589  0.592  0.054  0.039
+     CLOSZ_T3      5.194  5.144  5.013  4.864
+     OPP5Z_T3      5.448  5.537  4.747  4.791
+     ESUPZ_T3      6.119  4.139  6.083  4.147
+     ISUPZ_T3      6.345  6.428  4.373  4.357
+
+
+LATENT TRANSITION PROBABILITIES BASED ON THE ESTIMATED MODEL
+
+  C1 Classes (Rows) by C3 Classes (Columns)
+
+            1        2        3        4
+
+   1     0.203    0.144    0.269    0.384
+   2     0.203    0.144    0.269    0.384
+   3     0.203    0.144    0.269    0.384
+   4     0.203    0.144    0.269    0.384
+
+
+TRANSITION PROBABILITY ODDS
+
+     TRANSITION TABLE ODDS AND 95% CONFIDENCE INTERVALS FOR C1 TO C3
+        1.000(1.000,1.000)   0.709(0.653,0.769)   1.326(1.237,1.422)   1.895(1.777,2.021)
+        1.411(1.300,1.532)   1.000(1.000,1.000)   1.872(1.733,2.021)   2.674(2.487,2.876)
+        0.754(0.703,0.809)   0.534(0.495,0.577)   1.000(1.000,1.000)   1.429(1.347,1.516)
+        0.528(0.495,0.563)   0.374(0.348,0.402)   0.700(0.660,0.742)   1.000(1.000,1.000)
+
+
+C-SPECIFIC CLASSIFICATION RESULTS
+
+Classification Quality for C1
+
+     Entropy                         0.991
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.989    0.000    0.011    0.000
+    2   0.000    0.995    0.000    0.005
+    3   0.007    0.000    0.993    0.000
+    4   0.000    0.004    0.000    0.996
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.989    0.000    0.011    0.000
+    2   0.000    0.985    0.000    0.015
+    3   0.007    0.000    0.993    0.000
+    4   0.000    0.001    0.000    0.999
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1     13.804    0.000    9.307    0.000
+    2     -5.989    4.162   -9.638    0.000
+    3      6.588   -2.292   11.516    0.000
+    4    -13.814   -6.568  -11.846    0.000
+
+Classification Quality for C3
+
+     Entropy                         0.988
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.992    0.000    0.008    0.000
+    2   0.000    0.984    0.000    0.016
+    3   0.004    0.000    0.996    0.000
+    4   0.000    0.001    0.000    0.998
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.994    0.000    0.005    0.000
+    2   0.001    0.995    0.000    0.004
+    3   0.006    0.000    0.994    0.001
+    4   0.000    0.006    0.000    0.994
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1     13.810    5.659    8.589    0.000
+    2     -1.826    5.530   -8.281    0.000
+    3      2.337   -6.321    7.488    0.000
+    4    -13.810   -5.125  -11.024    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Parameters in the Overall Part of the Model (Parameters Equal in All of the Classes)
+
+ Variances
+    CLOSZ_T1           0.986      0.017     58.057      0.000
+    OPP5Z_T1           0.907      0.014     64.821      0.000
+    ESUPZ_T1           0.062      0.002     31.445      0.000
+    ISUPZ_T1           0.117      0.003     39.923      0.000
+    CLOSZ_T3           0.979      0.017     57.264      0.000
+    OPP5Z_T3           0.872      0.014     62.204      0.000
+    ESUPZ_T3           0.060      0.002     34.181      0.000
+    ISUPZ_T3           0.123      0.003     42.859      0.000
+
+Parameters for Class-specific Model Parts of C1
+
+Latent Class C1#1
+
+ Means
+    CLOSZ_T1           5.194      0.018    283.888      0.000
+    OPP5Z_T1           5.448      0.017    327.516      0.000
+    ESUPZ_T1           6.119      0.008    757.158      0.000
+    ISUPZ_T1           6.345      0.014    464.730      0.000
+
+ Thresholds
+    EDWC_T1$1         -2.122      0.068    -31.023      0.000
+    IDWC_T1$1         -0.359      0.045     -7.968      0.000
+
+Latent Class C1#2
+
+ Means
+    CLOSZ_T1           5.144      0.022    237.375      0.000
+    OPP5Z_T1           5.537      0.017    316.637      0.000
+    ESUPZ_T1           4.139      0.002   2089.597      0.000
+    ISUPZ_T1           6.428      0.016    403.565      0.000
+
+ Thresholds
+    EDWC_T1$1          6.027      0.480     12.561      0.000
+    IDWC_T1$1         -0.372      0.051     -7.321      0.000
+
+Latent Class C1#3
+
+ Means
+    CLOSZ_T1           5.013      0.018    280.515      0.000
+    OPP5Z_T1           4.747      0.018    257.819      0.000
+    ESUPZ_T1           6.083      0.007    901.546      0.000
+    ISUPZ_T1           4.373      0.004   1037.651      0.000
+
+ Thresholds
+    EDWC_T1$1         -2.670      0.071    -37.345      0.000
+    IDWC_T1$1          2.858      0.086     33.251      0.000
+
+Latent Class C1#4
+
+ Means
+    CLOSZ_T1           4.864      0.015    317.594      0.000
+    OPP5Z_T1           4.791      0.016    296.186      0.000
+    ESUPZ_T1           4.147      0.002   2711.016      0.000
+    ISUPZ_T1           4.357      0.003   1612.976      0.000
+
+ Thresholds
+    EDWC_T1$1          6.730      0.391     17.212      0.000
+    IDWC_T1$1          3.208      0.073     43.881      0.000
+
+Parameters for Class-specific Model Parts of C3
+
+Latent Class C3#1
+
+ Means
+    CLOSZ_T3           5.194      0.018    283.888      0.000
+    OPP5Z_T3           5.448      0.017    327.516      0.000
+    ESUPZ_T3           6.119      0.008    757.158      0.000
+    ISUPZ_T3           6.345      0.014    464.730      0.000
+
+ Thresholds
+    EDWC_T3$1         -2.122      0.068    -31.023      0.000
+    IDWC_T3$1         -0.359      0.045     -7.968      0.000
+
+Latent Class C3#2
+
+ Means
+    CLOSZ_T3           5.144      0.022    237.375      0.000
+    OPP5Z_T3           5.537      0.017    316.637      0.000
+    ESUPZ_T3           4.139      0.002   2089.597      0.000
+    ISUPZ_T3           6.428      0.016    403.565      0.000
+
+ Thresholds
+    EDWC_T3$1          6.027      0.480     12.561      0.000
+    IDWC_T3$1         -0.372      0.051     -7.321      0.000
+
+Latent Class C3#3
+
+ Means
+    CLOSZ_T3           5.013      0.018    280.515      0.000
+    OPP5Z_T3           4.747      0.018    257.819      0.000
+    ESUPZ_T3           6.083      0.007    901.546      0.000
+    ISUPZ_T3           4.373      0.004   1037.651      0.000
+
+ Thresholds
+    EDWC_T3$1         -2.670      0.071    -37.345      0.000
+    IDWC_T3$1          2.858      0.086     33.251      0.000
+
+Latent Class C3#4
+
+ Means
+    CLOSZ_T3           4.864      0.015    317.594      0.000
+    OPP5Z_T3           4.791      0.016    296.186      0.000
+    ESUPZ_T3           4.147      0.002   2711.016      0.000
+    ISUPZ_T3           4.357      0.003   1612.976      0.000
+
+ Thresholds
+    EDWC_T3$1          6.730      0.391     17.212      0.000
+    IDWC_T3$1          3.208      0.073     43.881      0.000
+
+Categorical Latent Variables
+
+ Means
+    C1#1              -1.095      0.035    -31.020      0.000
+    C1#2              -1.279      0.038    -33.753      0.000
+    C1#3              -0.637      0.030    -21.327      0.000
+    C3#1              -0.639      0.033    -19.461      0.000
+    C3#2              -0.984      0.037    -26.501      0.000
+    C3#3              -0.357      0.030    -11.829      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.519E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Results for Class-specific Model Parts of C1
+
+Latent Class C1#1
+
+ EDWC_T1
+    Category 1         0.107      0.007     16.372      0.000
+    Category 2         0.893      0.007    136.656      0.000
+ IDWC_T1
+    Category 1         0.411      0.011     37.648      0.000
+    Category 2         0.589      0.011     53.930      0.000
+
+Latent Class C1#2
+
+ EDWC_T1
+    Category 1         0.998      0.001    865.988      0.000
+    Category 2         0.002      0.001      2.089      0.037
+ IDWC_T1
+    Category 1         0.408      0.012     33.262      0.000
+    Category 2         0.592      0.012     48.244      0.000
+
+Latent Class C1#3
+
+ EDWC_T1
+    Category 1         0.065      0.004     14.958      0.000
+    Category 2         0.935      0.004    215.904      0.000
+ IDWC_T1
+    Category 1         0.946      0.004    214.330      0.000
+    Category 2         0.054      0.004     12.304      0.000
+
+Latent Class C1#4
+
+ EDWC_T1
+    Category 1         0.999      0.000   2143.853      0.000
+    Category 2         0.001      0.000      2.561      0.010
+ IDWC_T1
+    Category 1         0.961      0.003    351.977      0.000
+    Category 2         0.039      0.003     14.231      0.000
+
+Results for Class-specific Model Parts of C3
+
+Latent Class C3#1
+
+ EDWC_T3
+    Category 1         0.107      0.007     16.372      0.000
+    Category 2         0.893      0.007    136.656      0.000
+ IDWC_T3
+    Category 1         0.411      0.011     37.648      0.000
+    Category 2         0.589      0.011     53.930      0.000
+
+Latent Class C3#2
+
+ EDWC_T3
+    Category 1         0.998      0.001    865.988      0.000
+    Category 2         0.002      0.001      2.089      0.037
+ IDWC_T3
+    Category 1         0.408      0.012     33.262      0.000
+    Category 2         0.592      0.012     48.244      0.000
+
+Latent Class C3#3
+
+ EDWC_T3
+    Category 1         0.065      0.004     14.958      0.000
+    Category 2         0.935      0.004    215.904      0.000
+ IDWC_T3
+    Category 1         0.946      0.004    214.330      0.000
+    Category 2         0.054      0.004     12.304      0.000
+
+Latent Class C3#4
+
+ EDWC_T3
+    Category 1         0.999      0.000   2143.853      0.000
+    Category 2         0.001      0.000      2.561      0.010
+ IDWC_T3
+    Category 1         0.961      0.003    351.977      0.000
+    Category 2         0.039      0.003     14.231      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %OVERALL%
+
+     [ c1#1*-1.09523 ];
+     [ c1#2*-1.27946 ];
+     [ c1#3*-0.63725 ];
+     [ c3#1*-0.63925 ];
+     [ c3#2*-0.98373 ];
+     [ c3#3*-0.35696 ];
+
+     closz_t1*0.98562 (5);
+     opp5z_t1*0.90706 (6);
+     esupz_t1*0.06155 (7);
+     isupz_t1*0.11749 (8);
+     closz_t3*0.97929 (9);
+     opp5z_t3*0.87187 (10);
+     esupz_t3*0.06041 (11);
+     isupz_t3*0.12348 (12);
+
+
+  MODEL C1:
+
+     %C1#1%
+
+     [ closz_t1*5.19353 ] (1);
+     [ opp5z_t1*5.44821 ] (2);
+     [ esupz_t1*6.11922 ] (3);
+     [ isupz_t1*6.34461 ] (4);
+
+     [ edwc_t1$1*-2.12188 ] (25);
+     [ idwc_t1$1*-0.35941 ] (26);
+
+     %C1#2%
+
+     [ closz_t1*5.14376 ] (13);
+     [ opp5z_t1*5.53686 ] (14);
+     [ esupz_t1*4.13894 ] (15);
+     [ isupz_t1*6.42767 ] (16);
+
+     [ edwc_t1$1*6.02718 ] (27);
+     [ idwc_t1$1*-0.37184 ] (28);
+
+     %C1#3%
+
+     [ closz_t1*5.01256 ] (17);
+     [ opp5z_t1*4.74733 ] (18);
+     [ esupz_t1*6.08312 ] (19);
+     [ isupz_t1*4.37332 ] (20);
+
+     [ edwc_t1$1*-2.66957 ] (29);
+     [ idwc_t1$1*2.85759 ] (30);
+
+     %C1#4%
+
+     [ closz_t1*4.86449 ] (21);
+     [ opp5z_t1*4.79061 ] (22);
+     [ esupz_t1*4.14695 ] (23);
+     [ isupz_t1*4.35741 ] (24);
+
+     [ edwc_t1$1*6.73015 ] (31);
+     [ idwc_t1$1*3.20812 ] (32);
+
+  MODEL C3:
+
+     %C3#1%
+
+     [ closz_t3*5.19353 ] (1);
+     [ opp5z_t3*5.44821 ] (2);
+     [ esupz_t3*6.11922 ] (3);
+     [ isupz_t3*6.34461 ] (4);
+
+     [ edwc_t3$1*-2.12188 ] (25);
+     [ idwc_t3$1*-0.35941 ] (26);
+
+     %C3#2%
+
+     [ closz_t3*5.14376 ] (13);
+     [ opp5z_t3*5.53686 ] (14);
+     [ esupz_t3*4.13894 ] (15);
+     [ isupz_t3*6.42767 ] (16);
+
+     [ edwc_t3$1*6.02718 ] (27);
+     [ idwc_t3$1*-0.37184 ] (28);
+
+     %C3#3%
+
+     [ closz_t3*5.01256 ] (17);
+     [ opp5z_t3*4.74733 ] (18);
+     [ esupz_t3*6.08312 ] (19);
+     [ isupz_t3*4.37332 ] (20);
+
+     [ edwc_t3$1*-2.66957 ] (29);
+     [ idwc_t3$1*2.85759 ] (30);
+
+     %C3#4%
+
+     [ closz_t3*4.86449 ] (21);
+     [ opp5z_t3*4.79061 ] (22);
+     [ esupz_t3*4.14695 ] (23);
+     [ isupz_t3*4.35741 ] (24);
+
+     [ edwc_t3$1*6.73015 ] (31);
+     [ idwc_t3$1*3.20812 ] (32);
+
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 1 1
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                    1             2             3             4             1
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                    2             3             4
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 1 2
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                    1             2             3             4            13
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   14            15            16
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 1 3
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                    1             2             3             4            17
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   18            19            20
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 1 4
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                    1             2             3             4            21
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   22            23            24
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 2 1
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   13            14            15            16             1
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                    2             3             4
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 2 2
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   13            14            15            16            13
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   14            15            16
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 2 3
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   13            14            15            16            17
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   18            19            20
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 2 4
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   13            14            15            16            21
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   22            23            24
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 3 1
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   17            18            19            20             1
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                    2             3             4
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 3 2
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   17            18            19            20            13
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   14            15            16
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 3 3
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   17            18            19            20            17
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   18            19            20
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 3 4
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   17            18            19            20            21
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   22            23            24
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 4 1
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   21            22            23            24             1
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                    2             3             4
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 4 2
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   21            22            23            24            13
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   14            15            16
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 4 3
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   21            22            23            24            17
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   18            19            20
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS PATTERN 4 4
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                   21            22            23            24            21
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                   22            23            24
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1           5
+ OPP5Z_T1           0             6
+ ESUPZ_T1           0             0             7
+ ISUPZ_T1           0             0             0             8
+ CLOSZ_T3           0             0             0             0             9
+ OPP5Z_T3           0             0             0             0             0
+ ESUPZ_T3           0             0             0             0             0
+ ISUPZ_T3           0             0             0             0             0
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3          10
+ ESUPZ_T3           0            11
+ ISUPZ_T3           0             0            12
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 1
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   25            26            25            26
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 2
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   25            26            27            28
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 3
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   25            26            29            30
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 4
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   25            26            31            32
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 1
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   27            28            25            26
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 2
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   27            28            27            28
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 3
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   27            28            29            30
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 4
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   27            28            31            32
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 1
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   29            30            25            26
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 2
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   29            30            27            28
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 3
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   29            30            29            30
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 4
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   29            30            31            32
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 1
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   31            32            25            26
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 2
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   31            32            27            28
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 3
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   31            32            29            30
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 4
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                   31            32            31            32
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C1#1          C1#2          C1#3          C1#4          C3#1
+              ________      ________      ________      ________      ________
+                   33            34            35             0            36
+
+
+           ALPHA(C)
+              C3#2          C3#3          C3#4
+              ________      ________      ________
+                   37            38             0
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 1 1
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                4.250         4.250         4.250         4.250         4.250
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                4.250         4.250         4.250
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 1 2
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                4.250         4.250         4.250         4.250         5.000
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.000         5.000         5.000
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 1 3
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                4.250         4.250         4.250         4.250         5.000
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.000         5.000         5.000
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 1 4
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                4.250         4.250         4.250         4.250         5.750
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.750         5.750         5.750
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 2 1
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.000         5.000         5.000         5.000         4.250
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                4.250         4.250         4.250
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 2 2
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.000         5.000         5.000         5.000         5.000
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.000         5.000         5.000
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 2 3
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.000         5.000         5.000         5.000         5.000
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.000         5.000         5.000
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 2 4
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.000         5.000         5.000         5.000         5.750
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.750         5.750         5.750
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 3 1
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.000         5.000         5.000         5.000         4.250
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                4.250         4.250         4.250
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 3 2
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.000         5.000         5.000         5.000         5.000
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.000         5.000         5.000
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 3 3
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.000         5.000         5.000         5.000         5.000
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.000         5.000         5.000
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 3 4
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.000         5.000         5.000         5.000         5.750
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.750         5.750         5.750
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 4 1
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.750         5.750         5.750         5.750         4.250
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                4.250         4.250         4.250
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 4 2
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.750         5.750         5.750         5.750         5.000
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.000         5.000         5.000
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 4 3
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.750         5.750         5.750         5.750         5.000
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.000         5.000         5.000
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS PATTERN 4 4
+
+
+           NU
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+                5.750         5.750         5.750         5.750         5.750
+
+
+           NU
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+                5.750         5.750         5.750
+
+
+           THETA
+              CLOSZ_T1      OPP5Z_T1      ESUPZ_T1      ISUPZ_T1      CLOSZ_T3
+              ________      ________      ________      ________      ________
+ CLOSZ_T1       0.500
+ OPP5Z_T1       0.000         0.500
+ ESUPZ_T1       0.000         0.000         0.500
+ ISUPZ_T1       0.000         0.000         0.000         0.500
+ CLOSZ_T3       0.000         0.000         0.000         0.000         0.500
+ OPP5Z_T3       0.000         0.000         0.000         0.000         0.000
+ ESUPZ_T3       0.000         0.000         0.000         0.000         0.000
+ ISUPZ_T3       0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              OPP5Z_T3      ESUPZ_T3      ISUPZ_T3
+              ________      ________      ________
+ OPP5Z_T3       0.500
+ ESUPZ_T3       0.000         0.500
+ ISUPZ_T3       0.000         0.000         0.500
+
+
+     STARTING VALUES FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 1
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+               -0.353         0.544        -0.353         0.544
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 2
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+               -0.353         0.544         0.397         1.294
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 3
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+               -0.353         0.544         0.397         1.294
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 1 4
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+               -0.353         0.544         1.147         2.044
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 1
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                0.397         1.294        -0.353         0.544
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 2
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                0.397         1.294         0.397         1.294
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 3
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                0.397         1.294         0.397         1.294
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 2 4
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                0.397         1.294         1.147         2.044
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 1
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                0.397         1.294        -0.353         0.544
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 2
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                0.397         1.294         0.397         1.294
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 3
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                0.397         1.294         0.397         1.294
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 3 4
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                0.397         1.294         1.147         2.044
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 1
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                1.147         2.044        -0.353         0.544
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 2
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                1.147         2.044         0.397         1.294
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 3
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                1.147         2.044         0.397         1.294
+
+
+           TAU(U) FOR LATENT CLASS PATTERN 4 4
+              EDWC_T1$      IDWC_T1$      EDWC_T3$      IDWC_T3$
+              ________      ________      ________      ________
+                1.147         2.044         1.147         2.044
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C1#1          C1#2          C1#3          C1#4          C3#1
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA(C)
+              C3#2          C3#3          C3#4
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+TECHNICAL 10 OUTPUT
+
+
+     MODEL FIT INFORMATION FOR THE LATENT CLASS INDICATOR MODEL PART
+
+
+     RESPONSE PATTERNS
+
+     No.  Pattern    No.  Pattern    No.  Pattern    No.  Pattern
+       1  0000         2  0001         3  0010         4  0011
+       5  0100         6  0101         7  0110         8  0111
+       9  1000        10  1001        11  1010        12  1011
+      13  1100        14  1101        15  1110        16  1111
+
+
+
+     RESPONSE PATTERN FREQUENCIES AND CHI-SQUARE CONTRIBUTIONS
+
+    Response          Frequency     Standardized  Chi-square Contribution
+     Pattern    Observed  Estimated   Residual    Pearson   Loglikelihood  Deleted
+                                     (z-score)
+         1      2201.00    1660.75      15.18     175.74      1239.78
+         2       404.00     416.22      -0.62       0.36       -24.08
+         3       898.00    1147.52      -8.05      54.26      -440.35
+         4       266.00     442.02      -8.65      70.10      -270.19
+         5       212.00     335.03      -6.89      45.18      -194.03
+         6       204.00      83.97      13.18     171.60       362.19
+         7       116.00     231.49      -7.72      57.62      -160.30
+         8       117.00      89.17       2.97       8.69        63.56
+         9       626.00     877.32      -9.07      71.99      -422.58
+        10       128.00     219.88      -6.30      38.39      -138.51
+        11       929.00     606.19      13.72     171.90       793.20
+        12       281.00     233.51       3.16       9.66       104.05
+        13        99.00     301.18     -11.91     135.72      -220.29
+        14        84.00      75.48       0.99       0.96        17.96
+        15       157.00     208.11      -3.60      12.55       -88.49
+        16       286.00      80.16      23.12     528.54       727.55
+
+     THE TOTAL PEARSON CHI-SQUARE CONTRIBUTION FROM EMPTY CELLS IS         0.00
+
+
+     MOST FREQUENT RESPONSE PATTERNS AND CHI-SQUARE CONTRIBUTIONS
+
+    Response          Frequency     Standardized  Chi-square Contribution
+     Pattern    Observed  Estimated   Residual    Pearson   Loglikelihood
+                                     (z-score)
+         1      2201.00    1660.75      15.18     175.74      1239.78
+        11       929.00     606.19      13.72     171.90       793.20
+         3       898.00    1147.52      -8.05      54.26      -440.35
+         9       626.00     877.32      -9.07      71.99      -422.58
+         2       404.00     416.22      -0.62       0.36       -24.08
+        16       286.00      80.16      23.12     528.54       727.55
+        12       281.00     233.51       3.16       9.66       104.05
+         4       266.00     442.02      -8.65      70.10      -270.19
+         5       212.00     335.03      -6.89      45.18      -194.03
+         6       204.00      83.97      13.18     171.60       362.19
+        15       157.00     208.11      -3.60      12.55       -88.49
+        10       128.00     219.88      -6.30      38.39      -138.51
+         8       117.00      89.17       2.97       8.69        63.56
+         7       116.00     231.49      -7.72      57.62      -160.30
+        13        99.00     301.18     -11.91     135.72      -220.29
+        14        84.00      75.48       0.99       0.96        17.96
+     Number of Significant Standardized Residuals     14
+
+
+     UNIVARIATE MODEL FIT INFORMATION
+
+                               Estimated Probabilities
+                                                  Standardized
+     Variable              H1           H0          Residual
+                                                   (z-score)
+     EDWC_T1
+       Category 1        0.630        0.629           0.292
+       Category 2        0.370        0.371          -0.292
+       Univariate Pearson Chi-Square                  0.086
+       Univariate Log-Likelihood Chi-Square           0.086
+       Number of Significant Standardized Residuals   0
+     IDWC_T1
+       Category 1        0.818        0.800           3.867
+       Category 2        0.182        0.200          -3.867
+       Univariate Pearson Chi-Square                 14.953
+       Univariate Log-Likelihood Chi-Square          15.316
+       Number of Significant Standardized Residuals   2
+     EDWC_T3
+       Category 1        0.565        0.566          -0.285
+       Category 2        0.435        0.434           0.285
+       Univariate Pearson Chi-Square                  0.081
+       Univariate Log-Likelihood Chi-Square           0.081
+       Number of Significant Standardized Residuals   0
+     IDWC_T3
+       Category 1        0.747        0.766          -3.656
+       Category 2        0.253        0.234           3.656
+       Univariate Pearson Chi-Square                 13.366
+       Univariate Log-Likelihood Chi-Square          13.132
+       Number of Significant Standardized Residuals   2
+
+       Overall Univariate Pearson Chi-Square                        28.486
+       Overall Univariate Log-Likelihood Chi-Square                 28.615
+       Overall Number of Significant Standardized Residuals          4
+
+
+     BIVARIATE MODEL FIT INFORMATION
+
+                                              Estimated Probabilities
+                                                                 Standardized
+     Variable       Variable              H1           H0          Residual
+                                                                  (z-score)
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.538        0.523           2.451
+       Category 1     Category 2        0.093        0.106          -3.524
+       Category 2     Category 1        0.280        0.276           0.724
+       Category 2     Category 2        0.089        0.095          -1.587
+       Bivariate Pearson Chi-Square                                 16.634
+       Bivariate Log-Likelihood Chi-Square                          17.136
+       Number of Significant Standardized Residuals                  2
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.431        0.356          13.097
+       Category 1     Category 2        0.199        0.273         -13.767
+       Category 2     Category 1        0.134        0.210         -15.736
+       Category 2     Category 2        0.236        0.161          17.066
+       Bivariate Pearson Chi-Square                                688.259
+       Bivariate Log-Likelihood Chi-Square                         693.917
+       Number of Significant Standardized Residuals                  4
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.489        0.482           1.248
+       Category 1     Category 2        0.141        0.147          -1.362
+       Category 2     Category 1        0.258        0.284          -4.814
+       Category 2     Category 2        0.111        0.087           7.208
+       Bivariate Pearson Chi-Square                                 66.411
+       Bivariate Log-Likelihood Chi-Square                          63.073
+       Number of Significant Standardized Residuals                  2
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.479        0.453           4.435
+       Category 1     Category 2        0.339        0.347          -1.387
+       Category 2     Category 1        0.085        0.114          -7.405
+       Category 2     Category 2        0.096        0.087           2.844
+       Bivariate Pearson Chi-Square                                 68.013
+       Bivariate Log-Likelihood Chi-Square                          72.150
+       Number of Significant Standardized Residuals                  3
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.664        0.612           8.881
+       Category 1     Category 2        0.154        0.187          -7.125
+       Category 2     Category 1        0.083        0.154         -16.297
+       Category 2     Category 2        0.099        0.047          20.462
+       Bivariate Pearson Chi-Square                                695.715
+       Bivariate Log-Likelihood Chi-Square                         645.776
+       Number of Significant Standardized Residuals                  4
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.448        0.453          -0.871
+       Category 1     Category 2        0.117        0.114           0.921
+       Category 2     Category 1        0.300        0.313          -2.404
+       Category 2     Category 2        0.136        0.121           3.857
+       Bivariate Pearson Chi-Square                                 18.219
+       Bivariate Log-Likelihood Chi-Square                          17.760
+       Number of Significant Standardized Residuals                  2
+
+       Overall Bivariate Pearson Chi-Square                       1553.252
+       Overall Bivariate Log-Likelihood Chi-Square                1509.812
+       Overall Number of Significant Standardized Residuals          17
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 1 1
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.069          0.107                 -0.038               -2.763
+       Category 2        0.931          0.893                  0.038                2.763
+     IDWC_T1
+       Category 1        0.405          0.411                 -0.007               -0.300
+       Category 2        0.595          0.589                  0.007                0.300
+     EDWC_T3
+       Category 1        0.075          0.107                 -0.032               -2.320
+       Category 2        0.925          0.893                  0.032                2.320
+     IDWC_T3
+       Category 1        0.356          0.411                 -0.055               -2.520
+       Category 2        0.644          0.589                  0.055                2.520
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 1 1
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.039       0.044            -0.005           -0.511
+       Category 1     Category 2        0.030       0.063            -0.033           -3.084
+       Category 2     Category 1        0.365       0.367            -0.002           -0.089
+       Category 2     Category 2        0.566       0.526             0.040            1.797
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.030       0.011             0.018            3.871
+       Category 1     Category 2        0.039       0.096            -0.056           -4.306
+       Category 2     Category 1        0.045       0.096            -0.050           -3.840
+       Category 2     Category 2        0.885       0.797             0.088            4.934
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.037       0.044            -0.007           -0.727
+       Category 1     Category 2        0.032       0.063            -0.031           -2.902
+       Category 2     Category 1        0.319       0.367            -0.048           -2.263
+       Category 2     Category 2        0.612       0.526             0.086            3.896
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.051       0.044             0.007            0.798
+       Category 1     Category 2        0.353       0.367            -0.014           -0.646
+       Category 2     Category 1        0.024       0.063            -0.039           -3.625
+       Category 2     Category 2        0.572       0.526             0.046            2.060
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.266       0.169             0.097            5.848
+       Category 1     Category 2        0.138       0.242            -0.104           -5.462
+       Category 2     Category 1        0.090       0.242            -0.152           -8.012
+       Category 2     Category 2        0.506       0.347             0.159            7.521
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.051       0.044             0.007            0.810
+       Category 1     Category 2        0.024       0.063            -0.039           -3.635
+       Category 2     Category 1        0.305       0.367            -0.062           -2.918
+       Category 2     Category 2        0.620       0.526             0.094            4.253
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 1 2
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.225          0.107                  0.118                4.893
+       Category 2        0.775          0.893                 -0.118               -4.893
+     IDWC_T1
+       Category 1        0.521          0.411                  0.109                2.848
+       Category 2        0.479          0.589                 -0.109               -2.848
+     EDWC_T3
+       Category 1        0.994          0.998                 -0.004               -0.968
+       Category 2        0.006          0.002                  0.004                0.968
+     IDWC_T3
+       Category 1        0.358          0.408                 -0.050               -1.310
+       Category 2        0.642          0.592                  0.050                1.310
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 1 2
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.176       0.044             0.132            8.262
+       Category 1     Category 2        0.049       0.063            -0.014           -0.748
+       Category 2     Category 1        0.344       0.367            -0.023           -0.608
+       Category 2     Category 2        0.431       0.526            -0.095           -2.442
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.225       0.107             0.118            4.909
+       Category 1     Category 2        0.000       0.000             0.000           -0.206
+       Category 2     Category 1        0.769       0.891            -0.122           -5.013
+       Category 2     Category 2        0.006       0.002             0.004            1.095
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.127       0.044             0.083            5.225
+       Category 1     Category 2        0.098       0.063             0.035            1.827
+       Category 2     Category 1        0.231       0.364            -0.134           -3.556
+       Category 2     Category 2        0.544       0.529             0.016            0.399
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.520       0.410             0.110            2.875
+       Category 1     Category 2        0.000       0.001            -0.001           -0.401
+       Category 2     Category 1        0.473       0.587            -0.114           -2.968
+       Category 2     Category 2        0.006       0.001             0.005            1.596
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.312       0.168             0.144            4.932
+       Category 1     Category 2        0.209       0.243            -0.034           -1.029
+       Category 2     Category 1        0.046       0.240            -0.194           -5.820
+       Category 2     Category 2        0.433       0.349             0.085            2.278
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.358       0.407            -0.049           -1.285
+       Category 1     Category 2        0.636       0.590             0.046            1.188
+       Category 2     Category 1        0.000       0.001            -0.001           -0.400
+       Category 2     Category 2        0.006       0.001             0.005            1.590
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 1 3
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.121          0.107                  0.014                0.719
+       Category 2        0.879          0.893                 -0.014               -0.719
+     IDWC_T1
+       Category 1        0.488          0.411                  0.077                2.540
+       Category 2        0.512          0.589                 -0.077               -2.540
+     EDWC_T3
+       Category 1        0.071          0.065                  0.006                0.419
+       Category 2        0.929          0.935                 -0.006               -0.419
+     IDWC_T3
+       Category 1        0.896          0.946                 -0.049               -3.532
+       Category 2        0.104          0.054                  0.049                3.532
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 1 3
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.079       0.044             0.036            2.815
+       Category 1     Category 2        0.041       0.063            -0.022           -1.461
+       Category 2     Category 1        0.409       0.367             0.041            1.396
+       Category 2     Category 2        0.471       0.526            -0.055           -1.792
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.026       0.007             0.019            3.757
+       Category 1     Category 2        0.095       0.100            -0.006           -0.298
+       Category 2     Category 1        0.045       0.058            -0.013           -0.893
+       Category 2     Category 2        0.834       0.835            -0.001           -0.037
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.106       0.101             0.005            0.259
+       Category 1     Category 2        0.015       0.006             0.009            1.897
+       Category 2     Category 1        0.790       0.845            -0.054           -2.424
+       Category 2     Category 2        0.089       0.048             0.040            3.055
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.047       0.027             0.021            2.078
+       Category 1     Category 2        0.441       0.384             0.056            1.882
+       Category 2     Category 1        0.024       0.038            -0.014           -1.208
+       Category 2     Category 2        0.488       0.551            -0.063           -2.048
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.473       0.389             0.084            2.812
+       Category 1     Category 2        0.015       0.022            -0.007           -0.819
+       Category 2     Category 1        0.423       0.557            -0.134           -4.371
+       Category 2     Category 2        0.089       0.032             0.057            5.237
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.066       0.061             0.005            0.321
+       Category 1     Category 2        0.005       0.004             0.002            0.443
+       Category 2     Category 1        0.830       0.884            -0.054           -2.744
+       Category 2     Category 2        0.098       0.051             0.048            3.526
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 1 4
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.135          0.107                  0.029                1.160
+       Category 2        0.865          0.893                 -0.029               -1.160
+     IDWC_T1
+       Category 1        0.470          0.411                  0.059                1.511
+       Category 2        0.530          0.589                 -0.059               -1.511
+     EDWC_T3
+       Category 1        1.000          0.999                  0.001                0.434
+       Category 2        0.000          0.001                 -0.001               -0.434
+     IDWC_T3
+       Category 1        0.904          0.961                 -0.057               -3.718
+       Category 2        0.096          0.039                  0.057                3.718
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 1 4
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.104       0.044             0.060            3.677
+       Category 1     Category 2        0.032       0.063            -0.031           -1.628
+       Category 2     Category 1        0.366       0.367            -0.001           -0.022
+       Category 2     Category 2        0.498       0.526            -0.028           -0.697
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.135       0.107             0.029            1.166
+       Category 1     Category 2        0.000       0.000             0.000           -0.142
+       Category 2     Category 1        0.865       0.892            -0.027           -1.112
+       Category 2     Category 2        0.000       0.001            -0.001           -0.410
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.117       0.103             0.014            0.580
+       Category 1     Category 2        0.019       0.004             0.014            2.831
+       Category 2     Category 1        0.787       0.858            -0.071           -2.566
+       Category 2     Category 2        0.077       0.035             0.043            2.930
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.470       0.411             0.060            1.524
+       Category 1     Category 2        0.000       0.000             0.000           -0.279
+       Category 2     Category 1        0.530       0.588            -0.058           -1.493
+       Category 2     Category 2        0.000       0.001            -0.001           -0.333
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.451       0.395             0.056            1.449
+       Category 1     Category 2        0.019       0.016             0.003            0.280
+       Category 2     Category 1        0.453       0.566            -0.113           -2.879
+       Category 2     Category 2        0.077       0.023             0.054            4.570
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.904       0.960            -0.056           -3.593
+       Category 1     Category 2        0.096       0.039             0.057            3.723
+       Category 2     Category 1        0.000       0.001            -0.001           -0.426
+       Category 2     Category 2        0.000       0.000             0.000           -0.085
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 2 1
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.995          0.998                 -0.002               -0.681
+       Category 2        0.005          0.002                  0.002                0.681
+     IDWC_T1
+       Category 1        0.496          0.408                  0.088                2.656
+       Category 2        0.504          0.592                 -0.088               -2.656
+     EDWC_T3
+       Category 1        0.137          0.107                  0.030                1.414
+       Category 2        0.863          0.893                 -0.030               -1.414
+     IDWC_T3
+       Category 1        0.394          0.411                 -0.017               -0.505
+       Category 2        0.606          0.589                  0.017                0.505
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 2 1
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.492       0.407             0.085            2.548
+       Category 1     Category 2        0.503       0.590            -0.087           -2.613
+       Category 2     Category 1        0.005       0.001             0.004            1.705
+       Category 2     Category 2        0.000       0.001            -0.001           -0.532
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.137       0.107             0.030            1.427
+       Category 1     Category 2        0.859       0.891            -0.032           -1.520
+       Category 2     Category 1        0.000       0.000             0.000           -0.223
+       Category 2     Category 2        0.005       0.002             0.002            0.798
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.390       0.410            -0.020           -0.613
+       Category 1     Category 2        0.606       0.587             0.018            0.545
+       Category 2     Category 1        0.005       0.001             0.004            1.688
+       Category 2     Category 2        0.000       0.001            -0.001           -0.524
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.072       0.044             0.029            2.082
+       Category 1     Category 2        0.424       0.364             0.060            1.828
+       Category 2     Category 1        0.064       0.063             0.001            0.048
+       Category 2     Category 2        0.439       0.529            -0.089           -2.638
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.324       0.168             0.156            6.168
+       Category 1     Category 2        0.173       0.240            -0.068           -2.340
+       Category 2     Category 1        0.071       0.243            -0.173           -5.950
+       Category 2     Category 2        0.433       0.349             0.084            2.619
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.059       0.044             0.015            1.108
+       Category 1     Category 2        0.077       0.063             0.014            0.864
+       Category 2     Category 1        0.335       0.367            -0.032           -0.987
+       Category 2     Category 2        0.529       0.526             0.003            0.077
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 2 2
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.997          0.998                 -0.001               -0.317
+       Category 2        0.003          0.002                  0.001                0.317
+     IDWC_T1
+       Category 1        0.447          0.408                  0.039                1.370
+       Category 2        0.553          0.592                 -0.039               -1.370
+     EDWC_T3
+       Category 1        0.997          0.998                 -0.001               -0.318
+       Category 2        0.003          0.002                  0.001                0.318
+     IDWC_T3
+       Category 1        0.357          0.408                 -0.051               -1.816
+       Category 2        0.643          0.592                  0.051                1.816
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 2 2
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.443       0.407             0.036            1.288
+       Category 1     Category 2        0.553       0.590            -0.037           -1.318
+       Category 2     Category 1        0.003       0.001             0.002            1.288
+       Category 2     Category 2        0.000       0.001            -0.001           -0.657
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.993       0.995            -0.002           -0.451
+       Category 1     Category 2        0.003       0.002             0.001            0.320
+       Category 2     Category 1        0.003       0.002             0.001            0.320
+       Category 2     Category 2        0.000       0.000             0.000           -0.042
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.354       0.407            -0.054           -1.898
+       Category 1     Category 2        0.643       0.590             0.053            1.865
+       Category 2     Category 1        0.003       0.001             0.002            1.288
+       Category 2     Category 2        0.000       0.001            -0.001           -0.657
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.443       0.407             0.036            1.288
+       Category 1     Category 2        0.003       0.001             0.002            1.288
+       Category 2     Category 1        0.553       0.590            -0.037           -1.318
+       Category 2     Category 2        0.000       0.001            -0.001           -0.657
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.289       0.167             0.122            5.703
+       Category 1     Category 2        0.158       0.242            -0.083           -3.391
+       Category 2     Category 1        0.068       0.242            -0.173           -7.049
+       Category 2     Category 2        0.485       0.350             0.135            4.913
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.354       0.407            -0.054           -1.898
+       Category 1     Category 2        0.643       0.590             0.053            1.865
+       Category 2     Category 1        0.003       0.001             0.002            1.289
+       Category 2     Category 2        0.000       0.001            -0.001           -0.657
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 2 3
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        1.000          0.998                  0.002                0.555
+       Category 2        0.000          0.002                 -0.002               -0.555
+     IDWC_T1
+       Category 1        0.402          0.408                 -0.006               -0.137
+       Category 2        0.598          0.592                  0.006                0.137
+     EDWC_T3
+       Category 1        0.089          0.065                  0.024                1.101
+       Category 2        0.911          0.935                 -0.024               -1.101
+     IDWC_T3
+       Category 1        0.948          0.946                  0.002                0.108
+       Category 2        0.052          0.054                 -0.002               -0.108
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 2 3
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.402       0.407            -0.005           -0.114
+       Category 1     Category 2        0.598       0.590             0.007            0.169
+       Category 2     Category 1        0.000       0.001            -0.001           -0.354
+       Category 2     Category 2        0.000       0.001            -0.001           -0.427
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.089       0.065             0.024            1.110
+       Category 1     Category 2        0.911       0.933            -0.022           -0.982
+       Category 2     Category 1        0.000       0.000             0.000           -0.141
+       Category 2     Category 2        0.000       0.002            -0.002           -0.537
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.948       0.943             0.004            0.217
+       Category 1     Category 2        0.052       0.054            -0.002           -0.101
+       Category 2     Category 1        0.000       0.002            -0.002           -0.540
+       Category 2     Category 2        0.000       0.000             0.000           -0.129
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.063       0.026             0.037            2.579
+       Category 1     Category 2        0.339       0.382            -0.043           -0.990
+       Category 2     Category 1        0.026       0.038            -0.013           -0.743
+       Category 2     Category 2        0.572       0.554             0.019            0.422
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.402       0.386             0.016            0.369
+       Category 1     Category 2        0.000       0.022            -0.022           -1.676
+       Category 2     Category 1        0.546       0.560            -0.014           -0.313
+       Category 2     Category 2        0.052       0.032             0.020            1.261
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.089       0.061             0.027            1.288
+       Category 1     Category 2        0.000       0.004            -0.003           -0.638
+       Category 2     Category 1        0.859       0.884            -0.025           -0.890
+       Category 2     Category 2        0.052       0.051             0.001            0.061
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 2 4
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        1.000          0.998                  0.002                0.794
+       Category 2        0.000          0.002                 -0.002               -0.794
+     IDWC_T1
+       Category 1        0.482          0.408                  0.074                2.438
+       Category 2        0.518          0.592                 -0.074               -2.438
+     EDWC_T3
+       Category 1        0.992          0.999                 -0.006               -3.026
+       Category 2        0.008          0.001                  0.006                3.026
+     IDWC_T3
+       Category 1        0.947          0.961                 -0.014               -1.166
+       Category 2        0.053          0.039                  0.014                1.166
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 2 4
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.482       0.407             0.075            2.471
+       Category 1     Category 2        0.518       0.590            -0.073           -2.390
+       Category 2     Category 1        0.000       0.001            -0.001           -0.507
+       Category 2     Category 2        0.000       0.001            -0.001           -0.611
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.992       0.996            -0.004           -1.096
+       Category 1     Category 2        0.008       0.001             0.006            3.031
+       Category 2     Category 1        0.000       0.002            -0.002           -0.793
+       Category 2     Category 2        0.000       0.000             0.000           -0.027
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.947       0.959            -0.012           -0.946
+       Category 1     Category 2        0.053       0.039             0.014            1.176
+       Category 2     Category 1        0.000       0.002            -0.002           -0.778
+       Category 2     Category 2        0.000       0.000             0.000           -0.156
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.478       0.408             0.071            2.328
+       Category 1     Category 2        0.004       0.000             0.003            2.448
+       Category 2     Category 1        0.514       0.591            -0.077           -2.540
+       Category 2     Category 2        0.004       0.001             0.003            1.899
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.482       0.392             0.090            2.976
+       Category 1     Category 2        0.000       0.016            -0.016           -2.038
+       Category 2     Category 1        0.465       0.569            -0.104           -3.389
+       Category 2     Category 2        0.053       0.023             0.030            3.202
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.940       0.960            -0.020           -1.687
+       Category 1     Category 2        0.053       0.039             0.014            1.171
+       Category 2     Category 1        0.008       0.001             0.007            3.108
+       Category 2     Category 2        0.000       0.000             0.000           -0.110
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 3 1
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.045          0.065                 -0.020               -1.450
+       Category 2        0.955          0.935                  0.020                1.450
+     IDWC_T1
+       Category 1        0.964          0.946                  0.018                1.459
+       Category 2        0.036          0.054                 -0.018               -1.459
+     EDWC_T3
+       Category 1        0.107          0.107                  0.000                0.014
+       Category 2        0.893          0.893                  0.000               -0.014
+     IDWC_T3
+       Category 1        0.382          0.411                 -0.029               -1.081
+       Category 2        0.618          0.589                  0.029                1.081
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 3 1
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.045       0.061            -0.016           -1.222
+       Category 1     Category 2        0.000       0.004            -0.004           -1.081
+       Category 2     Category 1        0.919       0.884             0.034            1.951
+       Category 2     Category 2        0.036       0.051            -0.015           -1.215
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.015       0.007             0.008            1.666
+       Category 1     Category 2        0.031       0.058            -0.027           -2.121
+       Category 2     Category 1        0.093       0.100            -0.007           -0.446
+       Category 2     Category 2        0.862       0.835             0.027            1.323
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.030       0.027             0.003            0.332
+       Category 1     Category 2        0.016       0.038            -0.023           -2.142
+       Category 2     Category 1        0.352       0.384            -0.032           -1.203
+       Category 2     Category 2        0.603       0.551             0.052            1.895
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.107       0.101             0.006            0.365
+       Category 1     Category 2        0.857       0.845             0.012            0.609
+       Category 2     Category 1        0.000       0.006            -0.006           -1.390
+       Category 2     Category 2        0.036       0.048            -0.012           -1.048
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.379       0.389            -0.010           -0.372
+       Category 1     Category 2        0.585       0.557             0.028            1.030
+       Category 2     Category 1        0.003       0.022            -0.019           -2.375
+       Category 2     Category 2        0.033       0.032             0.001            0.115
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.073       0.044             0.029            2.605
+       Category 1     Category 2        0.034       0.063            -0.029           -2.181
+       Category 2     Category 1        0.309       0.367            -0.059           -2.212
+       Category 2     Category 2        0.584       0.526             0.058            2.127
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 3 2
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.124          0.065                  0.059                2.795
+       Category 2        0.876          0.935                 -0.059               -2.795
+     IDWC_T1
+       Category 1        0.961          0.946                  0.015                0.774
+       Category 2        0.039          0.054                 -0.015               -0.774
+     EDWC_T3
+       Category 1        1.000          0.998                  0.002                0.570
+       Category 2        0.000          0.002                 -0.002               -0.570
+     IDWC_T3
+       Category 1        0.385          0.408                 -0.023               -0.539
+       Category 2        0.615          0.592                  0.023                0.539
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 3 2
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.124       0.061             0.062            3.039
+       Category 1     Category 2        0.000       0.004            -0.004           -0.693
+       Category 2     Category 1        0.837       0.884            -0.047           -1.731
+       Category 2     Category 2        0.039       0.051            -0.012           -0.612
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.124       0.065             0.059            2.805
+       Category 1     Category 2        0.000       0.000             0.000           -0.146
+       Category 2     Category 1        0.876       0.933            -0.057           -2.646
+       Category 2     Category 2        0.000       0.002            -0.002           -0.551
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.073       0.026             0.047            3.388
+       Category 1     Category 2        0.051       0.038             0.012            0.752
+       Category 2     Category 1        0.312       0.382            -0.069           -1.664
+       Category 2     Category 2        0.564       0.554             0.010            0.242
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.961       0.943             0.017            0.874
+       Category 1     Category 2        0.000       0.002            -0.002           -0.555
+       Category 2     Category 1        0.039       0.054            -0.015           -0.768
+       Category 2     Category 2        0.000       0.000             0.000           -0.133
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.377       0.386            -0.009           -0.213
+       Category 1     Category 2        0.584       0.560             0.024            0.563
+       Category 2     Category 1        0.008       0.022            -0.014           -1.093
+       Category 2     Category 2        0.031       0.032            -0.001           -0.082
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.385       0.407            -0.022           -0.516
+       Category 1     Category 2        0.615       0.590             0.024            0.572
+       Category 2     Category 1        0.000       0.001            -0.001           -0.366
+       Category 2     Category 2        0.000       0.001            -0.001           -0.437
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 3 3
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.056          0.065                 -0.009               -0.971
+       Category 2        0.944          0.935                  0.009                0.971
+     IDWC_T1
+       Category 1        0.959          0.946                  0.014                1.664
+       Category 2        0.041          0.054                 -0.014               -1.664
+     EDWC_T3
+       Category 1        0.055          0.065                 -0.009               -1.050
+       Category 2        0.945          0.935                  0.009                1.050
+     IDWC_T3
+       Category 1        0.930          0.946                 -0.016               -1.959
+       Category 2        0.070          0.054                  0.016                1.959
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 3 3
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.055       0.061            -0.006           -0.741
+       Category 1     Category 2        0.001       0.004            -0.002           -1.035
+       Category 2     Category 1        0.904       0.884             0.020            1.735
+       Category 2     Category 2        0.039       0.051            -0.011           -1.438
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.019       0.004             0.014            6.131
+       Category 1     Category 2        0.038       0.061            -0.023           -2.663
+       Category 2     Category 1        0.037       0.061            -0.024           -2.745
+       Category 2     Category 2        0.907       0.875             0.032            2.699
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.055       0.061            -0.006           -0.717
+       Category 1     Category 2        0.001       0.004            -0.002           -1.132
+       Category 2     Category 1        0.875       0.884            -0.010           -0.851
+       Category 2     Category 2        0.069       0.051             0.018            2.327
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.053       0.061            -0.008           -0.900
+       Category 1     Category 2        0.906       0.884             0.021            1.854
+       Category 2     Category 1        0.002       0.004            -0.002           -0.721
+       Category 2     Category 2        0.039       0.051            -0.012           -1.523
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.906       0.894             0.011            1.010
+       Category 1     Category 2        0.054       0.051             0.002            0.301
+       Category 2     Category 1        0.024       0.051            -0.027           -3.418
+       Category 2     Category 2        0.017       0.003             0.014            6.962
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.051       0.061            -0.010           -1.173
+       Category 1     Category 2        0.004       0.004             0.001            0.385
+       Category 2     Category 1        0.879       0.884            -0.006           -0.509
+       Category 2     Category 2        0.066       0.051             0.015            1.918
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 3 4
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.080          0.065                  0.015                1.389
+       Category 2        0.920          0.935                 -0.015               -1.389
+     IDWC_T1
+       Category 1        0.963          0.946                  0.018                1.735
+       Category 2        0.037          0.054                 -0.018               -1.735
+     EDWC_T3
+       Category 1        1.000          0.999                  0.001                0.769
+       Category 2        0.000          0.001                 -0.001               -0.769
+     IDWC_T3
+       Category 1        0.974          0.961                  0.013                1.506
+       Category 2        0.026          0.039                 -0.013               -1.506
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 3 4
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.078       0.061             0.017            1.565
+       Category 1     Category 2        0.002       0.004            -0.002           -0.567
+       Category 2     Category 1        0.885       0.884             0.001            0.056
+       Category 2     Category 2        0.035       0.051            -0.016           -1.638
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.080       0.065             0.015            1.397
+       Category 1     Category 2        0.000       0.000             0.000           -0.196
+       Category 2     Category 1        0.920       0.934            -0.014           -1.278
+       Category 2     Category 2        0.000       0.001            -0.001           -0.744
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.080       0.062             0.018            1.636
+       Category 1     Category 2        0.000       0.003            -0.002           -1.066
+       Category 2     Category 1        0.894       0.899            -0.005           -0.346
+       Category 2     Category 2        0.026       0.036            -0.011           -1.270
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.963       0.945             0.019            1.829
+       Category 1     Category 2        0.000       0.001            -0.001           -0.748
+       Category 2     Category 1        0.037       0.054            -0.018           -1.730
+       Category 2     Category 2        0.000       0.000             0.000           -0.179
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.939       0.909             0.030            2.292
+       Category 1     Category 2        0.025       0.037            -0.012           -1.414
+       Category 2     Category 1        0.036       0.052            -0.017           -1.656
+       Category 2     Category 2        0.001       0.002            -0.001           -0.545
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.974       0.960             0.014            1.615
+       Category 1     Category 2        0.026       0.039            -0.013           -1.502
+       Category 2     Category 1        0.000       0.001            -0.001           -0.754
+       Category 2     Category 2        0.000       0.000             0.000           -0.151
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 4 1
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        1.000          0.999                  0.001                0.643
+       Category 2        0.000          0.001                 -0.001               -0.643
+     IDWC_T1
+       Category 1        0.963          0.961                  0.002                0.213
+       Category 2        0.037          0.039                 -0.002               -0.213
+     EDWC_T3
+       Category 1        0.111          0.107                  0.004                0.235
+       Category 2        0.889          0.893                 -0.004               -0.235
+     IDWC_T3
+       Category 1        0.403          0.411                 -0.008               -0.317
+       Category 2        0.597          0.589                  0.008                0.317
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 4 1
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.963       0.960             0.003            0.319
+       Category 1     Category 2        0.037       0.039            -0.002           -0.209
+       Category 2     Category 1        0.000       0.001            -0.001           -0.630
+       Category 2     Category 2        0.000       0.000             0.000           -0.130
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.111       0.107             0.004            0.243
+       Category 1     Category 2        0.889       0.892            -0.003           -0.170
+       Category 2     Category 1        0.000       0.000             0.000           -0.215
+       Category 2     Category 2        0.000       0.001            -0.001           -0.606
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.403       0.411            -0.008           -0.298
+       Category 1     Category 2        0.597       0.588             0.009            0.343
+       Category 2     Category 1        0.000       0.000             0.000           -0.423
+       Category 2     Category 2        0.000       0.001            -0.001           -0.484
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.110       0.103             0.008            0.475
+       Category 1     Category 2        0.853       0.858            -0.005           -0.296
+       Category 2     Category 1        0.000       0.004            -0.004           -1.115
+       Category 2     Category 2        0.036       0.035             0.002            0.167
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.394       0.395            -0.001           -0.035
+       Category 1     Category 2        0.569       0.566             0.003            0.118
+       Category 2     Category 1        0.009       0.016            -0.007           -1.109
+       Category 2     Category 2        0.028       0.023             0.005            0.654
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.067       0.044             0.023            2.158
+       Category 1     Category 2        0.044       0.063            -0.019           -1.522
+       Category 2     Category 1        0.336       0.367            -0.031           -1.242
+       Category 2     Category 2        0.553       0.526             0.028            1.053
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 4 2
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.998          0.999                 -0.001               -0.747
+       Category 2        0.002          0.001                  0.001                0.747
+     IDWC_T1
+       Category 1        0.967          0.961                  0.005                0.567
+       Category 2        0.033          0.039                 -0.005               -0.567
+     EDWC_T3
+       Category 1        0.999          0.998                  0.001                0.385
+       Category 2        0.001          0.002                 -0.001               -0.385
+     IDWC_T3
+       Category 1        0.352          0.408                 -0.056               -2.302
+       Category 2        0.648          0.592                  0.056                2.302
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 4 2
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.964       0.960             0.004            0.423
+       Category 1     Category 2        0.033       0.039            -0.005           -0.562
+       Category 2     Category 1        0.002       0.001             0.001            0.789
+       Category 2     Category 2        0.000       0.000             0.000           -0.137
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.996       0.996             0.000           -0.116
+       Category 1     Category 2        0.001       0.002            -0.001           -0.384
+       Category 2     Category 1        0.002       0.001             0.001            0.749
+       Category 2     Category 2        0.000       0.000             0.000           -0.034
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.352       0.408            -0.056           -2.282
+       Category 1     Category 2        0.646       0.591             0.055            2.229
+       Category 2     Category 1        0.000       0.000             0.000           -0.444
+       Category 2     Category 2        0.002       0.001             0.002            1.339
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.965       0.959             0.006            0.637
+       Category 1     Category 2        0.001       0.002            -0.001           -0.354
+       Category 2     Category 1        0.033       0.039            -0.005           -0.558
+       Category 2     Category 2        0.000       0.000             0.000           -0.194
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.349       0.392            -0.043           -1.783
+       Category 1     Category 2        0.618       0.569             0.049            1.979
+       Category 2     Category 1        0.003       0.016            -0.013           -2.087
+       Category 2     Category 2        0.031       0.023             0.008            1.009
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.352       0.407            -0.055           -2.262
+       Category 1     Category 2        0.647       0.590             0.056            2.299
+       Category 2     Category 1        0.000       0.001            -0.001           -0.630
+       Category 2     Category 2        0.001       0.001             0.000            0.023
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 4 3
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        1.000          0.999                  0.001                0.924
+       Category 2        0.000          0.001                 -0.001               -0.924
+     IDWC_T1
+       Category 1        0.956          0.961                 -0.005               -0.697
+       Category 2        0.044          0.039                  0.005                0.697
+     EDWC_T3
+       Category 1        0.065          0.065                  0.000               -0.018
+       Category 2        0.935          0.935                  0.000                0.018
+     IDWC_T3
+       Category 1        0.943          0.946                 -0.003               -0.368
+       Category 2        0.057          0.054                  0.003                0.368
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 4 3
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.956       0.960            -0.004           -0.531
+       Category 1     Category 2        0.044       0.039             0.005            0.704
+       Category 2     Category 1        0.000       0.001            -0.001           -0.906
+       Category 2     Category 2        0.000       0.000             0.000           -0.184
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.065       0.065             0.000           -0.009
+       Category 1     Category 2        0.935       0.934             0.001            0.138
+       Category 2     Category 1        0.000       0.000             0.000           -0.237
+       Category 2     Category 2        0.000       0.001            -0.001           -0.893
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.943       0.945            -0.002           -0.231
+       Category 1     Category 2        0.057       0.054             0.003            0.375
+       Category 2     Category 1        0.000       0.001            -0.001           -0.906
+       Category 2     Category 2        0.000       0.000             0.000           -0.186
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.062       0.062             0.000            0.021
+       Category 1     Category 2        0.894       0.899            -0.005           -0.464
+       Category 2     Category 1        0.002       0.003             0.000           -0.188
+       Category 2     Category 2        0.042       0.036             0.005            0.771
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.908       0.909            -0.001           -0.095
+       Category 1     Category 2        0.048       0.052            -0.004           -0.483
+       Category 2     Category 1        0.035       0.037            -0.002           -0.297
+       Category 2     Category 2        0.009       0.002             0.007            4.156
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.062       0.061             0.001            0.086
+       Category 1     Category 2        0.003       0.004            -0.001           -0.422
+       Category 2     Category 1        0.881       0.884            -0.004           -0.325
+       Category 2     Category 2        0.055       0.051             0.004            0.494
+
+
+     UNIVARIATE DISTRIBUTION FIT FOR PATTERN 4 4
+
+     Variable          Observed      Estimated      Residual (Obs.-Est.)    Stand. Residual
+     EDWC_T1
+       Category 1        0.999          0.999                  0.000                0.080
+       Category 2        0.001          0.001                  0.000               -0.080
+     IDWC_T1
+       Category 1        0.966          0.961                  0.005                1.113
+       Category 2        0.034          0.039                 -0.005               -1.113
+     EDWC_T3
+       Category 1        0.999          0.999                  0.000                0.018
+       Category 2        0.001          0.001                  0.000               -0.018
+     IDWC_T3
+       Category 1        0.960          0.961                 -0.001               -0.275
+       Category 2        0.040          0.039                  0.001                0.275
+
+
+     BIVARIATE DISTRIBUTIONS FIT FOR PATTERN 4 4
+
+     Variable       Variable          Observed     Estimated    Residual (Obs.-Est.)  Stand. Residual
+     EDWC_T1        IDWC_T1
+       Category 1     Category 1        0.965       0.960             0.005            1.101
+       Category 1     Category 2        0.034       0.039            -0.005           -1.103
+       Category 2     Category 1        0.001       0.001             0.000           -0.024
+       Category 2     Category 2        0.000       0.000             0.000           -0.287
+     EDWC_T1        EDWC_T3
+       Category 1     Category 1        0.998       0.998             0.000            0.068
+       Category 1     Category 2        0.001       0.001             0.000           -0.016
+       Category 2     Category 1        0.001       0.001             0.000           -0.079
+       Category 2     Category 2        0.000       0.000             0.000           -0.050
+     EDWC_T1        IDWC_T3
+       Category 1     Category 1        0.959       0.960            -0.001           -0.267
+       Category 1     Category 2        0.040       0.039             0.001            0.285
+       Category 2     Category 1        0.001       0.001             0.000           -0.024
+       Category 2     Category 2        0.000       0.000             0.000           -0.287
+     IDWC_T1        EDWC_T3
+       Category 1     Category 1        0.965       0.960             0.005            1.151
+       Category 1     Category 2        0.001       0.001             0.000           -0.313
+       Category 2     Category 1        0.033       0.039            -0.005           -1.165
+       Category 2     Category 2        0.000       0.000             0.000            1.465
+     IDWC_T1        IDWC_T3
+       Category 1     Category 1        0.931       0.924             0.007            1.077
+       Category 1     Category 2        0.036       0.037            -0.002           -0.374
+       Category 2     Category 1        0.029       0.037            -0.008           -1.787
+       Category 2     Category 2        0.004       0.002             0.003            3.190
+     EDWC_T3        IDWC_T3
+       Category 1     Category 1        0.959       0.960            -0.001           -0.278
+       Category 1     Category 2        0.040       0.039             0.001            0.285
+       Category 2     Category 1        0.001       0.001             0.000            0.039
+       Category 2     Category 2        0.000       0.000             0.000           -0.286
+
+
+TECHNICAL 15 OUTPUT
+
+
+     ESTIMATED CONDITIONAL PROBABILITIES FOR THE LATENT CLASS VARIABLES
+
+     P(C1=1)=0.156
+     P(C1=2)=0.130
+     P(C1=3)=0.247
+     P(C1=4)=0.467
+
+
+     P(C3=1|C1=1)=0.203
+     P(C3=2|C1=1)=0.144
+     P(C3=3|C1=1)=0.269
+     P(C3=4|C1=1)=0.384
+
+
+     P(C3=1|C1=2)=0.203
+     P(C3=2|C1=2)=0.144
+     P(C3=3|C1=2)=0.269
+     P(C3=4|C1=2)=0.384
+
+
+     P(C3=1|C1=3)=0.203
+     P(C3=2|C1=3)=0.144
+     P(C3=3|C1=3)=0.269
+     P(C3=4|C1=3)=0.384
+
+
+     P(C3=1|C1=4)=0.203
+     P(C3=2|C1=4)=0.144
+     P(C3=3|C1=4)=0.269
+     P(C3=4|C1=4)=0.384
+
+
+     ESTIMATED MARGINAL PROBABILITIES FOR THE LATENT CLASS VARIABLES
+
+     P(C3=1)=0.203
+     P(C3=2)=0.144
+     P(C3=3)=0.269
+     P(C3=4)=0.384
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+  Latent Class
+    Pattern
+
+    1  1        222.03310          0.03168
+    1  2        157.32942          0.02245
+    1  3        294.45139          0.04202
+    1  4        420.76536          0.06004
+    2  1        184.67403          0.02635
+    2  2        130.85733          0.01867
+    2  3        244.90729          0.03495
+    2  4        349.96780          0.04994
+    3  1        351.00381          0.05009
+    3  2        248.71619          0.03549
+    3  3        465.48718          0.06642
+    3  4        665.17221          0.09492
+    4  1        663.84709          0.09473
+    4  2        470.39239          0.06712
+    4  3        880.36738          0.12562
+    4  4       1258.02804          0.17951
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+  Latent Class
+    Pattern
+
+    1  1        508.11638          0.07251
+    1  2        164.06286          0.02341
+    1  3        264.23438          0.03770
+    1  4        158.15914          0.02257
+    2  1        218.26756          0.03115
+    2  2        303.06772          0.04325
+    2  3        127.73360          0.01823
+    2  4        261.33045          0.03729
+    3  1        330.83100          0.04721
+    3  2        136.10176          0.01942
+    3  3        766.77548          0.10941
+    3  4        496.67767          0.07087
+    4  1        364.33749          0.05199
+    4  2        404.05634          0.05766
+    4  3        726.47538          0.10366
+    4  4       1777.77278          0.25368
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+  Latent Class
+    Variable    Class
+
+    C1             1      1094.57276          0.15619
+                   2       910.39934          0.12991
+                   3      1730.38591          0.24692
+                   4      3272.64199          0.46699
+    C3             1      1421.55243          0.20285
+                   2      1007.28868          0.14373
+                   3      1885.21884          0.26901
+                   4      2693.94004          0.38441
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN
+
+Class Counts and Proportions
+
+  Latent Class
+    Pattern
+
+    1  1              510          0.07277
+    1  2              163          0.02326
+    1  3              265          0.03781
+    1  4              157          0.02240
+    2  1              217          0.03096
+    2  2              303          0.04324
+    2  3              125          0.01784
+    2  4              256          0.03653
+    3  1              330          0.04709
+    3  2              142          0.02026
+    3  3              765          0.10916
+    3  4              493          0.07035
+    4  1              368          0.05251
+    4  2              411          0.05865
+    4  3              726          0.10360
+    4  4             1777          0.25357
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR EACH LATENT CLASS VARIABLE
+BASED ON THEIR MOST LIKELY LATENT CLASS PATTERN
+
+  Latent Class
+    Variable    Class
+
+    C1             1            1095          0.15625
+                   2             901          0.12857
+                   3            1730          0.24686
+                   4            3282          0.46832
+    C3             1            1425          0.20334
+                   2            1019          0.14541
+                   3            1881          0.26841
+                   4            2683          0.38285
+
+
+LATENT CLASS INDICATOR ODDS RATIOS FOR THE LATENT CLASSES
+
+                                                95% C.I.
+                    Estimate       S.E.  Lower 2.5% Upper 2.5%
+
+Results for Class-specific Model Parts of C1
+
+Latent Class C1#1 Compared to Latent Class C1#2
+
+ EDWC_T1
+    Category > 1    3460.099   1675.653   1339.251   8939.544
+ IDWC_T1
+    Category > 1       0.988      0.065      0.869      1.123
+
+Latent Class C1#1 Compared to Latent Class C1#3
+
+ EDWC_T1
+    Category > 1       0.578      0.057      0.477      0.701
+ IDWC_T1
+    Category > 1      24.953      2.477     20.541     30.313
+
+Latent Class C1#1 Compared to Latent Class C1#4
+
+ EDWC_T1
+    Category > 1    6988.553   2774.437   3209.642  15216.614
+ IDWC_T1
+    Category > 1      35.429      3.028     29.965     41.890
+
+Latent Class C1#2 Compared to Latent Class C1#3
+
+ EDWC_T1
+    Category > 1       0.000      0.000      0.000      0.000
+ IDWC_T1
+    Category > 1      25.265      2.512     20.791     30.702
+
+Latent Class C1#2 Compared to Latent Class C1#4
+
+ EDWC_T1
+    Category > 1       2.020      1.252      0.600      6.804
+ IDWC_T1
+    Category > 1      35.872      3.247     30.041     42.836
+
+Latent Class C1#3 Compared to Latent Class C1#4
+
+ EDWC_T1
+    Category > 1   12085.057   4805.002   5543.781  26344.584
+ IDWC_T1
+    Category > 1       1.420      0.159      1.140      1.769
+
+Results for Class-specific Model Parts of C3
+
+Latent Class C3#1 Compared to Latent Class C3#2
+
+ EDWC_T3
+    Category > 1    3460.099   1675.653   1339.251   8939.544
+ IDWC_T3
+    Category > 1       0.988      0.065      0.869      1.123
+
+Latent Class C3#1 Compared to Latent Class C3#3
+
+ EDWC_T3
+    Category > 1       0.578      0.057      0.477      0.701
+ IDWC_T3
+    Category > 1      24.953      2.477     20.541     30.313
+
+Latent Class C3#1 Compared to Latent Class C3#4
+
+ EDWC_T3
+    Category > 1    6988.553   2774.437   3209.642  15216.614
+ IDWC_T3
+    Category > 1      35.429      3.028     29.965     41.890
+
+Latent Class C3#2 Compared to Latent Class C3#3
+
+ EDWC_T3
+    Category > 1       0.000      0.000      0.000      0.000
+ IDWC_T3
+    Category > 1      25.265      2.512     20.791     30.702
+
+Latent Class C3#2 Compared to Latent Class C3#4
+
+ EDWC_T3
+    Category > 1       2.020      1.252      0.600      6.804
+ IDWC_T3
+    Category > 1      35.872      3.247     30.041     42.836
+
+Latent Class C3#3 Compared to Latent Class C3#4
+
+ EDWC_T3
+    Category > 1   12085.057   4805.002   5543.781  26344.584
+ IDWC_T3
+    Category > 1       1.420      0.159      1.140      1.769
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    result_lta_inv_3step_step1_optseed_16a20_ref.cat.4.dat
+
+  Order and format of variables
+
+    EDWC_T1        F10.3
+    IDWC_T1        F10.3
+    EDWC_T3        F10.3
+    IDWC_T3        F10.3
+    CLOSZ_T1       F10.3
+    OPP5Z_T1       F10.3
+    ESUPZ_T1       F10.3
+    ISUPZ_T1       F10.3
+    CLOSZ_T3       F10.3
+    OPP5Z_T3       F10.3
+    ESUPZ_T3       F10.3
+    ISUPZ_T3       F10.3
+    PIDN           F10.3
+    FID            F10.3
+    AGEC_T1        F10.3
+    AGEC_T3        F10.3
+    EDUC_T1        F10.3
+    EDUC_T3        F10.3
+    SIOPC_T1       F10.3
+    SIOPC_T3       F10.3
+    AGE1_T1        F10.3
+    AGE1_T3        F10.3
+    AGE1_T11       F10.3
+    AGE1_T13       F10.3
+    AGE1_T31       F10.3
+    AGE1_T33       F10.3
+    EDU1_T1        F10.3
+    EDU1_T3        F10.3
+    EDU1_T11       F10.3
+    EDU1_T13       F10.3
+    EDU1_T31       F10.3
+    EDU1_T33       F10.3
+    SIOP1_T1       F10.3
+    SIOP1_T3       F10.3
+    SIP1_T11       F10.3
+    SIP1_T13       F10.3
+    SIP1_T31       F10.3
+    SIP1_T33       F10.3
+    AGE2_T1        F10.3
+    AGE2_T3        F10.3
+    AGE2_T11       F10.3
+    AGE2_T13       F10.3
+    AGE2_T31       F10.3
+    AGE2_T33       F10.3
+    EDU2_T1        F10.3
+    EDU2_T3        F10.3
+    EDU2_T11       F10.3
+    EDU2_T13       F10.3
+    EDU2_T31       F10.3
+    EDU2_T33       F10.3
+    SIOP2_T1       F10.3
+    SIOP2_T3       F10.3
+    SIP2_T11       F10.3
+    SIP2_T13       F10.3
+    SIP2_T31       F10.3
+    SIP2_T33       F10.3
+    AGE3_T1        F10.3
+    AGE3_T3        F10.3
+    AGE3_T11       F10.3
+    AGE3_T13       F10.3
+    AGE3_T31       F10.3
+    AGE3_T33       F10.3
+    EDU3_T1        F10.3
+    EDU3_T3        F10.3
+    EDU3_T11       F10.3
+    EDU3_T13       F10.3
+    EDU3_T31       F10.3
+    EDU3_T33       F10.3
+    SIOP3_T1       F10.3
+    SIOP3_T3       F10.3
+    SIP3_T11       F10.3
+    SIP3_T13       F10.3
+    SIP3_T31       F10.3
+    SIP3_T33       F10.3
+    INCC_T1        F10.3
+    INCC_T3        F10.3
+    HWC_T1         F10.3
+    HWC_T3         F10.3
+    INCCV          F10.3
+    HWCV           F10.3
+    INCNV          F10.3
+    HWNV           F10.3
+    INC1_T1        F10.3
+    INC1_T3        F10.3
+    INC2_T1        F10.3
+    INC2_T3        F10.3
+    INC3_T1        F10.3
+    INC3_T3        F10.3
+    INC1_T11       F10.3
+    INC1_T13       F10.3
+    INC1_T31       F10.3
+    INC1_T33       F10.3
+    INC2_T11       F10.3
+    INC2_T13       F10.3
+    INC2_T31       F10.3
+    INC2_T33       F10.3
+    INC3_T11       F10.3
+    INC3_T13       F10.3
+    INC3_T31       F10.3
+    INC3_T33       F10.3
+    HW1_T1         F10.3
+    HW1_T3         F10.3
+    HW2_T1         F10.3
+    HW2_T3         F10.3
+    HW3_T1         F10.3
+    HW3_T3         F10.3
+    HW1_T11        F10.3
+    HW1_T13        F10.3
+    HW1_T31        F10.3
+    HW1_T33        F10.3
+    HW2_T11        F10.3
+    HW2_T13        F10.3
+    HW2_T31        F10.3
+    HW2_T33        F10.3
+    HW3_T11        F10.3
+    HW3_T13        F10.3
+    HW3_T31        F10.3
+    HW3_T33        F10.3
+    INC11V         F10.3
+    INC11V_1       F10.3
+    INC11V_3       F10.3
+    INC11V_5       F10.3
+    INC11V_7       F10.3
+    INC12V         F10.3
+    INC12V_1       F10.3
+    INC12V_3       F10.3
+    INC12V_5       F10.3
+    INC12V_7       F10.3
+    HW11V          F10.3
+    HW11V_1        F10.3
+    HW11V_3        F10.3
+    HW11V_5        F10.3
+    HW11V_7        F10.3
+    HW12V          F10.3
+    HW12V_1        F10.3
+    HW12V_3        F10.3
+    HW12V_5        F10.3
+    HW12V_7        F10.3
+    INC21V         F10.3
+    INC21V_1       F10.3
+    INC21V_3       F10.3
+    INC21V_5       F10.3
+    INC21V_7       F10.3
+    INC22V         F10.3
+    INC22V_1       F10.3
+    INC22V_3       F10.3
+    INC22V_5       F10.3
+    INC22V_7       F10.3
+    HW21V          F10.3
+    HW21V_1        F10.3
+    HW21V_3        F10.3
+    HW21V_5        F10.3
+    HW21V_7        F10.3
+    HW22V          F10.3
+    HW22V_1        F10.3
+    HW22V_3        F10.3
+    HW22V_5        F10.3
+    HW22V_7        F10.3
+    INC31V         F10.3
+    INC31V_1       F10.3
+    INC31V_3       F10.3
+    INC31V_5       F10.3
+    INC31V_7       F10.3
+    INC32V         F10.3
+    INC32V_1       F10.3
+    INC32V_3       F10.3
+    INC32V_5       F10.3
+    INC32V_7       F10.3
+    HW31V          F10.3
+    HW31V_1        F10.3
+    HW31V_3        F10.3
+    HW31V_5        F10.3
+    HW31V_7        F10.3
+    HW32V          F10.3
+    HW32V_1        F10.3
+    HW32V_3        F10.3
+    HW32V_5        F10.3
+    HW32V_7        F10.3
+    SEX_T1         F10.3
+    SEX_T3         F10.3
+    CD_T1          F10.3
+    CD_T3          F10.3
+    CHILDCV        F10.3
+    CHILDNV        F10.3
+    DW_T1          F10.3
+    DW_T3          F10.3
+    DW_T12         F10.3
+    DW_T13         F10.3
+    DW_T32         F10.3
+    DW_T33         F10.3
+    DWV            F10.3
+    DWV1_2         F10.3
+    DWV1_3         F10.3
+    AG_T1          F10.3
+    AG_T3          F10.3
+    AAGE_T1        F10.3
+    AAGE_T3        F10.3
+    AEDU_T1        F10.3
+    AEDU_T3        F10.3
+    ASIOP_T1       F10.3
+    ASIOP_T3       F10.3
+    AINC_T1        F10.3
+    AINC_T3        F10.3
+    AHW_T1         F10.3
+    AHW_T3         F10.3
+    AINCCV         F10.3
+    AHWCV          F10.3
+    AINCNV         F10.3
+    AINCNV_1       F10.3
+    AINCNV_3       F10.3
+    AHWNV          F10.3
+    AHWNV_1        F10.3
+    AHWNV_3        F10.3
+    AHK_T1         F10.3
+    AHK_T3         F10.3
+    AHKNV          F10.3
+    PAGE_T1        F10.3
+    PAGE_T3        F10.3
+    PAGEN_T1       F10.3
+    PAGEN_T3       F10.3
+    PAGE_T12       F10.3
+    PAGE_T13       F10.3
+    PAGE_T14       F10.3
+    PAGE_T32       F10.3
+    PAGE_T33       F10.3
+    PAGE_T34       F10.3
+    PSEX_T1        F10.3
+    PSEX_T3        F10.3
+    PMAR_T1        F10.3
+    PMAR_T3        F10.3
+    PMARNV         F10.3
+    PEDU_T1        F10.3
+    PEDU_T3        F10.3
+    PEDU_T12       F10.3
+    PEDU_T13       F10.3
+    PEDU_T32       F10.3
+    PEDU_T33       F10.3
+    PHK_T1         F10.3
+    PHK_T3         F10.3
+    PCOR_T1        F10.3
+    PCOR_T3        F10.3
+    PCORNV         F10.3
+    PPART_T1       F10.3
+    PPART_T3       F10.3
+    FINC_T1        F10.3
+    FINC_T3        F10.3
+    FINCCV         F10.3
+    FINCNV         F10.3
+    FINCNV_1       F10.3
+    FINCNV_3       F10.3
+    FURB_T1        F10.3
+    FURB_T3        F10.3
+    FPROV_T1       F10.3
+    FPROV_T3       F10.3
+    FPOV_T11       F10.3
+    FPOV_T13       F10.3
+    FPOV_T31       F10.3
+    FPOV_T33       F10.3
+    LFT_T1         F10.3
+    LFT_T3         F10.3
+    FCZ_T1         F10.3
+    FCZ_T3         F10.3
+    RESP_T1        F10.3
+    RESP_T3        F10.3
+    CPROB1         F10.3
+    CPROB2         F10.3
+    CPROB3         F10.3
+    CPROB4         F10.3
+    CPROB5         F10.3
+    CPROB6         F10.3
+    CPROB7         F10.3
+    CPROB8         F10.3
+    CPROB9         F10.3
+    CPROB10        F10.3
+    CPROB11        F10.3
+    CPROB12        F10.3
+    CPROB13        F10.3
+    CPROB14        F10.3
+    CPROB15        F10.3
+    CPROB16        F10.3
+    C1             F10.3
+    C3             F10.3
+    MLCJOINT       F10.3
+    PID            F12.0
+
+  Save file format
+    283F10.3 F12.0
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+     Beginning Time:  11:21:31
+        Ending Time:  11:21:36
+       Elapsed Time:  00:00:05
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2024 Muthen & Muthen
